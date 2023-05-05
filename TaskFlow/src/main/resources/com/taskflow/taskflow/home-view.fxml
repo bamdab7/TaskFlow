@@ -64,10 +64,10 @@
                        </ImageView>
                    </graphic>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" top="10.0" />
+                  <Insets bottom="15.0" left="5.0" top="10.0" />
                </padding>
             </JFXButton>
                <JFXButton alignment="BOTTOM_LEFT" prefHeight="25.0" prefWidth="120.0" text="Categorias">
@@ -77,10 +77,10 @@
                        </ImageView>
                    </graphic>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" top="10.0" />
+                  <Insets bottom="15.0" left="5.0" top="10.0" />
                </padding>
                </JFXButton>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold" text="Ver" wrappingWidth="77.708984375">
@@ -95,38 +95,34 @@
                    </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" top="10.0" />
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
                </padding></JFXButton>
                <JFXButton alignment="BOTTOM_LEFT" prefHeight="25.0" prefWidth="129.0" style="-fx-text-fill: #b7950b;" text="Progreso">
                <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../icons/waiting.png" />
-                     </image>
-                  </ImageView>
+                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../../../icons/waiting.png"/>
+                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" top="10.0" />
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
                </padding></JFXButton>
                <JFXButton alignment="BOTTOM_LEFT" prefHeight="25.0" prefWidth="141.0" style="-fx-text-fill: #5bb830;" text="Terminado">
                <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../icons/done.png" />
-                     </image>
-                  </ImageView>
+                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../../../icons/done.png"/>
+                   </ImageView>
                </graphic>
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" top="10.0" />
+                  <Insets bottom="10.0" left="5.0" top="10.0" />
                </padding></JFXButton>
             <GridPane.margin>
                <Insets />
@@ -137,11 +133,9 @@
            </VBox>
          <JFXButton prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #5CB85C; -fx-background-radius: 10;" GridPane.rowIndex="1">
             <graphic>
-               <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="@../../../icons/add.png" />
-                  </image>
-               </ImageView>
+                <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                    <Image url="@../../../icons/add.png"/>
+                </ImageView>
             </graphic>
          </JFXButton>
        </GridPane>
