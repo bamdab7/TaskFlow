@@ -1,15 +1,17 @@
 /* styles for table in home controller */
 
-.table-view {
-    -fx-table-cell-border-color: transparent;
-    -fx-table-header-border-color: transparent;
+.table-view { /* background color */
+    -fx-background-color: #D3D3D3;
 }
-
+.table-row-cell {
+    -fx-padding: 10px; /* spacing between rows */
+    -fx-background-color: #D3D3D3; /* background color for rows*/
+    -fx-font-size: 14px;
+}
+/* making header invisible */
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    visibility: hidden;
 }
 
-.table-view .column-header, .table-view .filler {
-    -fx-background-color: transparent;
-}
+
 
