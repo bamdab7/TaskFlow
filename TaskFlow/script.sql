@@ -19,8 +19,6 @@ CREATE TABLE tareas (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(100) NOT NULL,
   descripcion TEXT NOT NULL,
-  fecha_creacion DATETIME NOT NULL,
-  fecha_vencimiento DATE NOT NULL,
   estado VARCHAR(20) NOT NULL,
   usuario_id INT NOT NULL,
   categoria_id INT NOT NULL,
@@ -43,9 +41,9 @@ INSERT INTO categorias (nombre) VALUES
 ('Salud'),
 ('Entretenimiento');
 
-INSERT INTO tareas (titulo, descripcion, fecha_creacion, fecha_vencimiento, estado, usuario_id, categoria_id) VALUES
-('Reunión con el cliente', 'Presentar propuesta de proyecto', '2023-05-08 10:00:00', '2023-05-10', 'pendiente', 1, 1),
-('Estudiar para el examen', 'Repasar apuntes y hacer ejercicios', '2023-05-08 14:00:00', '2023-05-12', 'pendiente', 2, 2),
-('Limpiar la casa', 'Barrer, trapear y ordenar los muebles', '2023-05-08 16:00:00', '2023-05-09', 'completada', 3, 3),
-('Hacer ejercicio', 'Ir al gimnasio y hacer una rutina de entrenamiento', '2023-05-08 18:00:00', '2023-05-09', 'pendiente', 4, 4),
-('Ver película', 'Ver la película "El Padrino"', '2023-05-08 20:00:00', '2023-05-08', 'completada', 5, 5);
+INSERT INTO tareas (titulo, descripcion,estado, usuario_id, categoria_id) VALUES
+('Reunión con el cliente', 'Presentar propuesta de proyecto','pendiente', 1, 1),
+('Estudiar para el examen', 'Repasar apuntes y hacer ejercicios', 'pendiente', 2, 2),
+('Limpiar la casa', 'Barrer, trapear y ordenar los muebles', 'completada', 3, 3),
+('Hacer ejercicio', 'Ir al gimnasio y hacer una rutina de entrenamiento', 'pendiente', 4, 4),
+('Ver película', 'Ver la película "El Padrino"', 'completada', 5, 5);
