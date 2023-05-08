@@ -145,29 +145,30 @@
        </GridPane>
    </left>
    <center> <!-- TABLA QUE MOSTRARA LAS TAREAS, SOLO EL TITUO, LA CATEGORIA Y EL ESTADO -->
-      <TableView fx:id="tabladb" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabladb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: D3D3D3;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="75.0" text="id_tarea">
-                <cellValueFactory>
-                    <PropertyValueFactory property="id_tarea" />
-                </cellValueFactory>
-          </TableColumn>
-          <TableColumn prefWidth="75.0" text="titulo">
+          <TableColumn editable="false" prefWidth="274.0" sortable="false">
               <cellValueFactory>
-                  <PropertyValueFactory property="titulo"/>
+                  <PropertyValueFactory property="titulo" />
               </cellValueFactory>
           </TableColumn>
-            <TableColumn prefWidth="75.0" text="categoria">
+            <TableColumn editable="false" minWidth="7.0" prefWidth="122.0" sortable="false">
                 <cellValueFactory>
-                  <PropertyValueFactory property="categoria"/>
+                  <PropertyValueFactory property="id_categoria" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="75.0" text="estado">
+            <TableColumn editable="false" prefWidth="82.0" sortable="false">
                 <cellValueFactory>
-                  <PropertyValueFactory property="estado"/>
+                  <PropertyValueFactory property="estado" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
+         <BorderPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </BorderPane.margin>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </TableView>
    </center>
 </BorderPane>

@@ -7,4 +7,6 @@ module com.taskflow.taskflow {
 
     opens com.taskflow.taskflow to javafx.fxml;
     exports com.taskflow.taskflow;
+    exports com.taskflow.taskflow.pojo;
+    opens com.taskflow.taskflow.pojo to javafx.fxml;
 }
