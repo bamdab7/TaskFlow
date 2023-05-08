@@ -4,26 +4,26 @@ CREATE DATABASE gestion_tareas;
 USE gestion_tareas;
 
 CREATE TABLE usuarios (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_usuarios INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL,
   email VARCHAR(50) NOT NULL,
   password VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE categorias (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_categorias INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(50) NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE tareas (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  idTareas INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(100) NOT NULL,
   descripcion TEXT NOT NULL,
-  estado VARCHAR(20) NOT NULL,
+  estado ENUM('Pendiente', 'Terminado', 'Progreso') NOT NULL,
   usuario_id INT NOT NULL,
   categoria_id INT NOT NULL,
-  FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
-  FOREIGN KEY (categoria_id) REFERENCES categorias(id)
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuarios),
+  FOREIGN KEY (categoria_id) REFERENCES categorias(id_categorias)
 ) ENGINE=InnoDB;
 
 /*SCRIPT DE LOS INSERTS*/
