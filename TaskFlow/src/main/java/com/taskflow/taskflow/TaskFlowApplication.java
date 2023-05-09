@@ -11,24 +11,32 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class TaskFlowApplication extends Application {
+
     //Getting the controller
     public static LoginController controladorLogin;
     public static HomeController controladorHome;
+    public static RegisterController controladorRegister;
 
-    //Creating another scene
+    //Setting scenes
     public static Scene sceneHome;
+    public static Scene sceneRegister;
     @Override
     public void start(Stage stage) throws IOException {
+        //Creating scenes
         FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));
             Parent rootHome = fxmlLoaderHome.load();
             controladorHome = fxmlLoaderHome.getController();
-            sceneHome = new Scene(rootHome);
+            sceneHome = new Scene(rootHome,646,394);
+
+        FXMLLoader fxmlLoaderRegister = new FXMLLoader(TaskFlowApplication.class.getResource("register-view.fxml"));
+            Parent rootRegister = fxmlLoaderRegister.load();
+            controladorRegister = fxmlLoaderRegister.getController();
+            sceneRegister = new Scene(rootRegister, 646,394);
 
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
 
-        //Creating scenes
      //   Scene sceneHome = new Scene(fxmlLoaderHome.load(), 600, 400);
-        Scene sceneLogin = new Scene(fxmlLoaderLogin.load(), 600, 400);
+        Scene sceneLogin = new Scene(fxmlLoaderLogin.load(),646,394);
 
         //Adding icon to application
         stage.getIcons().add(new Image(Objects.requireNonNull(TaskFlowApplication.class.getResourceAsStream("/logo.png"))));

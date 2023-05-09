@@ -41,6 +41,11 @@ public class LoginController implements Initializable {
     }
 
     public void linkRegister(ActionEvent actionEvent) {
-        //Scene Registwer
+        //Scene Register
+        Scene sceneRegister = TaskFlowApplication.sceneRegister;
+        Stage stageRegister = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stageRegister.setScene(sceneRegister);
+        stageRegister.show();
     }
 }
