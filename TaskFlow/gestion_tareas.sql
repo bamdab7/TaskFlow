@@ -84,6 +84,7 @@ INSERT INTO `tareas` (`id_tareas`, `titulo`, `descripcion`, `estado`, `usuario_i
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
+   `username` varchar(50) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
@@ -94,12 +95,12 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuarios`, `nombre`, `email`, `password`) VALUES
-(1, 'Juan Pérez', 'juan@example.com', 'password1'),
-(2, 'María López', 'maria@example.com', 'password2'),
-(3, 'Pedro Ramírez', 'pedro@example.com', 'password3'),
-(4, 'Laura Martínez', 'laura@example.com', 'password4'),
-(5, 'Ana Sánchez', 'ana@example.com', 'password5');
+INSERT INTO `usuarios` (`id_usuarios`, `username`, `nombre`, `email`, `password`) VALUES
+(1, 'juan', 'Juan Pérez', 'juan@example.com', 'password1'),
+(2, 'mari', 'María López', 'maria@example.com', 'password2'),
+(3, 'pedro', 'Pedro Ramírez', 'pedro@example.com', 'password3'),
+(4, 'lau', 'Laura Martínez', 'laura@example.com', 'password4'),
+(5, 'na', 'Ana Sánchez', 'ana@example.com', 'password5');
 
 --
 -- Restricciones para tablas volcadas
