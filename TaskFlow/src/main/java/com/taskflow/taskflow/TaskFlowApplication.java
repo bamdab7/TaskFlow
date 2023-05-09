@@ -20,6 +20,7 @@ public class TaskFlowApplication extends Application {
     //Setting scenes
     public static Scene sceneHome;
     public static Scene sceneRegister;
+    public static Scene sceneLogin;
     @Override
     public void start(Stage stage) throws IOException {
         //Creating scenes
@@ -31,12 +32,12 @@ public class TaskFlowApplication extends Application {
         FXMLLoader fxmlLoaderRegister = new FXMLLoader(TaskFlowApplication.class.getResource("register-view.fxml"));
             Parent rootRegister = fxmlLoaderRegister.load();
             controladorRegister = fxmlLoaderRegister.getController();
-            sceneRegister = new Scene(rootRegister, 646,394);
+            sceneRegister = new Scene(rootRegister, 656,400);
 
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
-
-     //   Scene sceneHome = new Scene(fxmlLoaderHome.load(), 600, 400);
-        Scene sceneLogin = new Scene(fxmlLoaderLogin.load(),646,394);
+           // Parent rootLogin = fxmlLoaderLogin.load(); //Do not use this if this is the first scene lauched
+            controladorRegister = fxmlLoaderLogin.getController();
+            sceneLogin = new Scene(fxmlLoaderLogin.load(),646,394);
 
         //Adding icon to application
         stage.getIcons().add(new Image(Objects.requireNonNull(TaskFlowApplication.class.getResourceAsStream("/logo.png"))));
