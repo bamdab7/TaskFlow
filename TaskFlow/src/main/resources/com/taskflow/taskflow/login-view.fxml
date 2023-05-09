@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -28,6 +29,7 @@
                <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="127.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="52.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="154.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="154.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
            </rowConstraints>
@@ -36,10 +38,11 @@
                   <Font size="36.0" />
               </font>
            </Text>
-           <JFXButton fx:id="btnLogin" onAction="#btnLogin" prefHeight="31.0" prefWidth="154.0" style="-fx-background-color: #68C5E5; -fx-background-radius: 15;" text="LOG IN" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+           <JFXButton fx:id="btnLogin" onAction="#btnLogin" prefHeight="31.0" prefWidth="154.0" style="-fx-background-color: #68C5E5; -fx-background-radius: 15;" text="LOG IN" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
            <TextField fx:id="txtUser" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="170.0" promptText="User" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-           <TextField fx:id="txtPassword" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="170.0" promptText="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-           <Hyperlink fx:id="linkRegister" alignment="CENTER" contentDisplay="CENTER" onAction="#linkRegister" prefHeight="24.0" prefWidth="244.0" text="No tienes una cuenta? Registrate aqui!" GridPane.rowIndex="4" />
+           <PasswordField fx:id="txtPassword" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="170.0" promptText="Password" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+           <Hyperlink fx:id="linkRegister" alignment="CENTER" contentDisplay="CENTER" onAction="#linkRegister" prefHeight="24.0" prefWidth="244.0" text="No tienes una cuenta? Registrate aqui!" GridPane.rowIndex="5" />
+         <Text fx:id="verification" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="234.13671875" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
        </GridPane>
    </right>
    <padding>
