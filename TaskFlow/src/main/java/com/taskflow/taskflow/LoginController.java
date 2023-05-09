@@ -40,7 +40,7 @@ public class LoginController implements Initializable {
             throw new RuntimeException(e);
         }
         System.out.printf("Conexion conseguida con bd usuarios\n");
-
+        verification.setText(null);
     }
 
     public void btnLogin(ActionEvent actionEvent) throws IOException, SQLException {
@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
 
     //Set all fields null
     public void eliminarCampos(){
-        txtUser.setText("");
-        txtPassword.setText("");
+        txtUser.clear();
+        txtPassword.clear();
     }
 }

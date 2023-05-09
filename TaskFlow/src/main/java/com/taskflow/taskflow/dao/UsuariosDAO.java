@@ -1,5 +1,7 @@
 package com.taskflow.taskflow.dao;
 
+import com.taskflow.taskflow.pojo.Usuarios;
+
 import java.sql.*;
 
 public class UsuariosDAO {
@@ -39,4 +41,22 @@ public class UsuariosDAO {
              return false;
          }
     }
+
+    //Insert users into dabatase
+    public void insertUsuario(Usuarios usuario) throws SQLException {
+        Connection conn = getConnection();
+        String query = "INSERT INTO usuarios(id_usuarios,username,nombre,email,password) VALUES ('" +  usuario.getId_usuario() + "','" +
+        usuario.getUsername()+ "','"+ usuario.getNombre() + "','"+ usuario.getEmail() + "','" + usuario.getPassword() + "')";
+        Statement st;
+        try{
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
+//"INSERT INTO empleados (idEmpleado, nombre, apellidos, fecha_nacimiento, categoria) VALUES ('\" +\n" +
+//                "                empleado.getIdEmpleado()+\"','\"+ empleado.getNombre()+\"','\" +
+//                empleado.getApellidos()+\"','\"+empleado.getFecha_nacimiento()+\"','\"+ empleado.getCategoria() + \"')\";\n" +
+//                "        ";
