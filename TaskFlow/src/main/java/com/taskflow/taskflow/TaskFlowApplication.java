@@ -13,13 +13,21 @@ import java.util.Objects;
 public class TaskFlowApplication extends Application {
     //Getting the controller
     public static LoginController controladorLogin;
+    public static HomeController controladorHome;
+
+    //Creating another scene
+    public static Scene sceneHome;
     @Override
     public void start(Stage stage) throws IOException {
-       // FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));
+        FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));
+            Parent rootHome = fxmlLoaderHome.load();
+            controladorHome = fxmlLoaderHome.getController();
+            sceneHome = new Scene(rootHome);
+
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
 
         //Creating scenes
-            // Scene sceneHome = new Scene(fxmlLoaderHome.load(), 600, 400);
+     //   Scene sceneHome = new Scene(fxmlLoaderHome.load(), 600, 400);
         Scene sceneLogin = new Scene(fxmlLoaderLogin.load(), 600, 400);
 
         //Adding icon to application
