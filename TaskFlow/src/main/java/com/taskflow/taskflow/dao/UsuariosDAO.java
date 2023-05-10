@@ -18,6 +18,22 @@ public class UsuariosDAO {
             return  null;
         }
     }
+    //Create DB
+     public void crearDBUsuarios() throws SQLException {
+       conn = getConnection();
+       Statement st = conn.createStatement();
+
+       String sql = "CREATE TABLE IF NOT EXISTS usuarios (" +
+               "  id_usuarios int NOT NULL AUTO_INCREMENT," +
+               "  username varchar(50) NOT NULL," +
+               "  nombre varchar(50) NOT NULL," +
+               "  email varchar(50) NOT NULL," +
+               "  password varchar(50) NOT NULL," +
+               "  PRIMARY KEY (id_usuarios)" +
+               ")ENGINE=InnoDB";
+       st.executeUpdate(sql);
+    }
+
 
     //Methods
 

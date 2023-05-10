@@ -7,8 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
@@ -31,9 +34,9 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Calling UsuariosDAO in order to add users
-        usuariosDAO = new UsuariosDAO();
         try {
+            //Calling UsuariosDAO in order to add users
+            usuariosDAO = new UsuariosDAO();
             usuariosDAO.getConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -43,13 +46,29 @@ public class RegisterController implements Initializable {
 
     public void btnSignup(ActionEvent actionEvent) throws SQLException {
         //Collect all data from textfield and insert into database and then redirect to Login
+        String estilo = "-fx-border-color: red;";
         Usuarios user = new Usuarios();
-        if (txtUser.getText().isEmpty()||txtPassword.getText().isEmpty()||txtEmail.getText().isEmpty()||txtName.getText().isEmpty()){
-            //If the form is not completed, warn the user
-            System.out.println("no completo");
+        if (txtUser.getText().isEmpty()) {
+            System.out.println("Falta user");
+            //txtUser.setStyle(estilo);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Introduzca el usuario");
+            //alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.getDialogPane().setPrefWidth(200);
+             alert.getDialogPane().setPrefHeight(50);
+            alert.showAndWait();
+            txtUser.clear();
+        }else if(txtPassword.getText().isEmpty()){
+            System.out.println("Falta contraseña");
+            txtPassword.clear();}
+        else if (txtEmail.getText().isEmpty()) {
+            System.out.println("Falta email");
+            txtEmail.clear();
+        } else if (txtName.getText().isEmpty()) {
+            System.out.println("Falta nombre");
+            txtName.clear();
 
-            eliminarCampos();
-        }else {
+        } else {
             //Insert
             user.setId_usuario(id);
             user.setNombre(txtName.getText());
@@ -78,6 +97,8 @@ public class RegisterController implements Initializable {
 
         stageLogin.setScene(sceneLogin);
         stageLogin.show();
+
+        eliminarCampos();
     }
 
     public void eliminarCampos(){

@@ -6,10 +6,9 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 
 public class TareasDAO {
-
+    Connection conn;
     //Get connection to the database
     public Connection getConnection() throws SQLException {
-        Connection conn;
         try{
             conn =DriverManager.getConnection("jdbc:mysql://localhost/gestion_tareas", "root", "");
             //System.out.print("Conexion establecida");
@@ -20,6 +19,25 @@ public class TareasDAO {
             return  null;
         }
     }
+    //Creating the table
+     public void crearDBTareas() throws SQLException {
+        conn = getConnection();
+        Statement st = conn.createStatement();
+
+       String sql = "CREATE TABLE IF NOT EXISTS tareas (" +
+               "  id_tareas int NOT NULL AUTO_INCREMENT," +
+               "  titulo varchar(50) NOT NULL," +
+               "  descripcion text NOT NULL," +
+               "  estado enum('Pendiente','Terminado','Progreso') NOT NULL," +
+               "  usuario_id int NOT NULL," +
+               "  categoria_id int NOT NULL," +
+               "  PRIMARY KEY (id_tareas)," +
+               "  FOREIGN KEY (categoria_id) REFERENCES categorias (id_categorias) ON DELETE CASCADE ON UPDATE CASCADE," +
+               "  FOREIGN KEY (usuario_id) REFERENCES usuarios (id_usuarios) ON DELETE CASCADE ON UPDATE CASCADE" +
+               ")ENGINE=InnoDB;";
+       st.executeUpdate(sql);
+    }
+
     //Getting the task from the database
     public ObservableList<Tareas> obtenerListadoTareas() throws SQLException {
          ObservableList<Tareas> tareasList = FXCollections.observableArrayList();

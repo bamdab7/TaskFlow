@@ -32,9 +32,9 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Calling UsuariosDAO in order to get the users loged
-        usuariosDAO = new UsuariosDAO();
         try {
+            //Calling UsuariosDAO in order to get the users loged
+            usuariosDAO = new UsuariosDAO();
             usuariosDAO.getConnection();
         } catch (SQLException e) {
             System.out.printf("No se ha podido establecer conexion. Error: " +e.getMessage());

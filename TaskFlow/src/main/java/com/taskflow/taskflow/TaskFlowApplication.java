@@ -1,5 +1,8 @@
 package com.taskflow.taskflow;
 
+import com.taskflow.taskflow.dao.CategoriasDAO;
+import com.taskflow.taskflow.dao.TareasDAO;
+import com.taskflow.taskflow.dao.UsuariosDAO;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Objects;
 
 public class TaskFlowApplication extends Application {
@@ -17,12 +22,21 @@ public class TaskFlowApplication extends Application {
     public static HomeController controladorHome;
     public static RegisterController controladorRegister;
 
+    public static UsuariosDAO users = new UsuariosDAO();
+    public static CategoriasDAO categorias = new CategoriasDAO();
+    public static TareasDAO tareas = new TareasDAO();
+
     //Setting scenes
     public static Scene sceneHome;
     public static Scene sceneRegister;
     public static Scene sceneLogin;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) throws IOException, SQLException {
+
+        users.crearDBUsuarios();
+        categorias.crearDBCategorias();
+        tareas.crearDBTareas();
+
         //Creating scenes
         FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));
             Parent rootHome = fxmlLoaderHome.load();
