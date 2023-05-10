@@ -29,13 +29,13 @@ public class HomeController implements Initializable {
         try {
             tareasDAO.getConnection();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.printf("No se ha podido establecer la conexion. Error: " + e.getMessage());
         }
         System.out.println("Conexion conseguida");
         try {
             mostrarTareas();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.printf("No se pudieron mostrar las tareas. Error: " +e.getMessage());
         }
     }
     //Show the task in the table, put every time you want to refresh the table ( searching or refresing the app)

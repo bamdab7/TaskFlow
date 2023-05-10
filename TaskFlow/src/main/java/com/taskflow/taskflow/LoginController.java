@@ -37,7 +37,7 @@ public class LoginController implements Initializable {
         try {
             usuariosDAO.getConnection();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.printf("No se ha podido establecer conexion. Error: " +e.getMessage());
         }
         System.out.printf("Conexion conseguida con bd usuarios\n");
         verification.setText(null);

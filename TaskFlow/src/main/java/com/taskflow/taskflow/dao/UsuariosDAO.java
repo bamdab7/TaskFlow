@@ -14,7 +14,7 @@ public class UsuariosDAO {
             return conn;
         }catch (SQLException e){
             //Catching errors
-            System.out.printf("Error " + e.getMessage());
+            System.out.printf("Ha ocurrido un error de conexion. Error: " + e.getMessage());
             return  null;
         }
     }
@@ -37,7 +37,7 @@ public class UsuariosDAO {
 
              return autenticated;
          }catch (Exception e){
-             System.out.printf("Error: " +e.getMessage());
+             System.out.printf("Error al comprobar usuario : " +e.getMessage());
              return false;
          }
     }
@@ -52,7 +52,7 @@ public class UsuariosDAO {
             st = conn.createStatement();
             st.executeUpdate(query);
         }catch (Exception e){
-            e.printStackTrace();
+            System.out.printf("Error al insertar usuario. Error: " + e.getMessage());
         }
     }
 }
