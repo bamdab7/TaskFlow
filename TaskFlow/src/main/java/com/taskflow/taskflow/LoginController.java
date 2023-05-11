@@ -32,18 +32,13 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            //Calling UsuariosDAO in order to get the users loged
-            usuariosDAO = new UsuariosDAO();
-            usuariosDAO.getConnection();
-        } catch (SQLException e) {
-            System.out.printf("No se ha podido establecer conexion. Error: " +e.getMessage());
-        }
-        System.out.printf("Conexion conseguida con bd usuarios\n");
+        //Calling UsuariosDAO in order to get the users loged
+        usuariosDAO = new UsuariosDAO();
+        usuariosDAO.getConnection();
         verification.setText(null);
     }
 
-    public void btnLogin(ActionEvent actionEvent) throws IOException, SQLException {
+    public void btnLogin(ActionEvent actionEvent){
         //Check credentials
         String username = txtUser.getText();
         String password = txtPassword.getText();

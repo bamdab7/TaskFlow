@@ -6,30 +6,36 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CategoriasDAO {
-     Connection conn;
+    Connection conn;
+
     //Connect to the database
-     public Connection getConnection() throws SQLException {
-        try{
+    public Connection getConnection() throws SQLException {
+        try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost/gestion_tareas", "root", "");
             //System.out.print("Conexion establecida");
             return conn;
-        }catch (SQLException e){
+        } catch (SQLException e) {
             //Catching errors
-            System.out.printf("Ha ocurrido un error de conexion. Error: " + e.getMessage());
-            return  null;
+            System.out.printf("Ha ocurrido un error de conexion.\n Error: " + e.getMessage());
+            return null;
         }
     }
 
     //Creatin table
-    public void crearDBCategorias() throws SQLException {
-        conn = getConnection();
-        Statement st = conn.createStatement();
+    public void crearDBCategorias() {
+        try {
+            conn = getConnection();
+            Statement st = conn.createStatement();
 
-       String sql = "CREATE TABLE IF NOT EXISTS categorias (" +
-               "  id_categorias int NOT NULL AUTO_INCREMENT," +
-               "  nombre varchar(50) NOT NULL," +
-               "  PRIMARY KEY (id_categorias)" +
-               ")ENGINE=InnoDB";
-       st.executeUpdate(sql);
+            String sql = "CREATE TABLE IF NOT EXISTS categorias (" +
+                    "  id_categorias int NOT NULL AUTO_INCREMENT," +
+                    "  nombre varchar(50) NOT NULL," +
+                    "  PRIMARY KEY (id_categorias)" +
+                    ")ENGINE=InnoDB";
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+             System.out.printf("Error al crear la base de datos CATEGORIAS.\n Error: " +e.getMessage());;
+        }
+
     }
 }
