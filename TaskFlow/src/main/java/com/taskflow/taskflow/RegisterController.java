@@ -34,40 +34,20 @@ public class RegisterController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            //Calling UsuariosDAO in order to add users
-            usuariosDAO = new UsuariosDAO();
-            usuariosDAO.getConnection();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.printf("Conexion conseguida con bd usuarios\n");
+        //Calling UsuariosDAO in order to add users
+        usuariosDAO = new UsuariosDAO();
+        usuariosDAO.getConnection();
     }
 
-    public void btnSignup(ActionEvent actionEvent) throws SQLException {
+    public void btnSignup(ActionEvent actionEvent) {
         //Collect all data from textfield and insert into database and then redirect to Login
-        String estilo = "-fx-border-color: red;";
         Usuarios user = new Usuarios();
-        if (txtUser.getText().isEmpty()) {
-            System.out.println("Falta user");
-            //txtUser.setStyle(estilo);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Introduzca el usuario");
-            //alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.getDialogPane().setPrefWidth(200);
-             alert.getDialogPane().setPrefHeight(50);
-            alert.showAndWait();
-            txtUser.clear();
-        }else if(txtPassword.getText().isEmpty()){
-            System.out.println("Falta contraseña");
-            txtPassword.clear();}
-        else if (txtEmail.getText().isEmpty()) {
-            System.out.println("Falta email");
-            txtEmail.clear();
-        } else if (txtName.getText().isEmpty()) {
-            System.out.println("Falta nombre");
-            txtName.clear();
-
+        //In order to validate the email, get text from form
+        String email = txtEmail.getText();
+        if (txtUser.getText().isEmpty()||txtPassword.getText().isEmpty()||txtEmail.getText().isEmpty()||txtName.getText().isEmpty()) {
+            mostrarAlerta("Error", "Debe completar todos los campos");
+        } else if (!email.contains("@")) {
+            mostrarAlerta("Error","Debe introducir un correo valido");
         } else {
             //Insert
             user.setId_usuario(id);
@@ -88,6 +68,14 @@ public class RegisterController implements Initializable {
             stageLogin.setScene(sceneLogin);
             stageLogin.show();
         }
+    }
+
+    private void mostrarAlerta(String titulo,String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 
     public void linkRegister(ActionEvent actionEvent) {
