@@ -1,0 +1,2 @@
+Los colores que se enuentran en esta carpeta son todos los empleados en la aplicacion, con sus respectivos códigos.
+Existe posibilidad de que algunos colores que están aqui, no se usaran en la aplicación. Pero la intención era determinar 3 'sub-colores' de cada color usado para permitirse variaciones.
