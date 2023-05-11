@@ -35,7 +35,7 @@ public class LoginController implements Initializable {
         //Calling UsuariosDAO in order to get the users loged
         usuariosDAO = new UsuariosDAO();
         usuariosDAO.getConnection();
-        verification.setText(null);
+        verification.setText(" ");
     }
 
     public void btnLogin(ActionEvent actionEvent){
@@ -60,6 +60,8 @@ public class LoginController implements Initializable {
     }
 
     public void linkRegister(ActionEvent actionEvent) {
+        verification.setText(" ");
+
         //Scene Register
         Scene sceneRegister = TaskFlowApplication.sceneRegister;
         Stage stageRegister = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
