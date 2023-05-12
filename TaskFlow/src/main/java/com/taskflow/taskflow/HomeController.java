@@ -3,12 +3,15 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
+import com.taskflow.taskflow.dao.UsuariosDAO;
+import com.taskflow.taskflow.pojo.Usuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -27,6 +30,7 @@ public class HomeController implements Initializable {
     public JFXButton btnTerminado;
     public JFXButton btnAdd;
     public TableView tabladb;
+    public Text nombreUsuario;
     //Calling classes
     TareasDAO tareasDAO;
 
@@ -98,7 +102,7 @@ public class HomeController implements Initializable {
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+              System.out.println("Error: " + e.getMessage());
         }
     }
 }

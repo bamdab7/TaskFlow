@@ -5,9 +5,9 @@ import com.taskflow.taskflow.pojo.Usuarios;
 import java.sql.*;
 
 public class UsuariosDAO {
-    Connection conn;
+    static Connection conn;
     //Connect to the database
-     public Connection getConnection() {
+     public static Connection getConnection() {
         try{
             conn = DriverManager.getConnection("jdbc:mysql://localhost/gestion_tareas", "root", "");
             //System.out.print("Conexion establecida");
@@ -58,6 +58,30 @@ public class UsuariosDAO {
              System.out.printf("Error al comprobar usuario.\n Error:  " +e.getMessage());
              return false;
          }
+    }
+    //Getting the userid
+    public static Usuarios getUser(String nombre){
+        Usuarios user = null;
+        try {
+            int id = 0;
+            conn = getConnection();
+            String sql = "SELECT * FROM usuarios WHERE username LIKE '" + nombre + "'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                user = new Usuarios();
+                user.setId_usuario(rs.getInt("id_usuarios"));
+                user.setUsername(rs.getString("username"));
+                user.setNombre(rs.getString("nombre"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+                return user;
+            }
+        } catch (SQLException e) {
+            System.out.printf("Error al obtener el id del usuario.\n Error: " + e.getMessage());
+            return null;
+        }
+        return user;
     }
 
     //Insert users into dabatase

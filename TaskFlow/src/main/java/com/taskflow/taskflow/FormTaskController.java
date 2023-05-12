@@ -1,8 +1,10 @@
 package com.taskflow.taskflow;
 
 import com.taskflow.taskflow.dao.CategoriasDAO;
+import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Categorias;
 import com.taskflow.taskflow.pojo.Tareas;
+import com.taskflow.taskflow.pojo.Usuarios;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -17,7 +19,7 @@ public class FormTaskController {
     public Button btnAceptar;
     private Stage dialogStage;
     private boolean okClicked = false;
-
+    public static Usuarios user;
     private int id;
 
     public void btnCancelar(ActionEvent actionEvent) {
@@ -37,14 +39,21 @@ public class FormTaskController {
 //            mostrarAlerta("Error", "Debe completar la info sobre la tarea");
 //        }else {
             //Insert into database
-            tarea.setId_tareas(id);
+
             tarea.setTitulo(txtNombre.getText());
+            tarea.setDescripcion(txtDescripcion.getText());
 
             String categoria =  cmbCategoria.getSelectionModel().getSelectedItem().toString();
             int id_categoria=CategoriasDAO.getIdCategoria(categoria);
-            System.out.println(id_categoria);
+            tarea.setId_categoria(id_categoria);
+
+            tarea.setEstado(cmbEstado.getSelectionModel().getSelectedItem().toString());
+
+            tarea.setId_usuarios(LoginController.user.getId_usuario());
             id=0;
             eliminarCampos();
+
+            System.out.println(tarea);
         }
    // }
 

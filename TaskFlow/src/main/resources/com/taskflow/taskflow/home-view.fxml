@@ -37,7 +37,7 @@
                  </ImageView>
             </graphic>
          </JFXButton>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" textAlignment="CENTER" wrappingWidth="87.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <Text strokeType="OUTSIDE" fx:id="nombreUsuario" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" textAlignment="CENTER" wrappingWidth="87.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
          </Text>
            <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                <GridPane.margin>
