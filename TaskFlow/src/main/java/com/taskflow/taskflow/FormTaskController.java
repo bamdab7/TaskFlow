@@ -1,5 +1,7 @@
 package com.taskflow.taskflow;
 
+import com.taskflow.taskflow.dao.CategoriasDAO;
+import com.taskflow.taskflow.pojo.Categorias;
 import com.taskflow.taskflow.pojo.Tareas;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -31,17 +33,20 @@ public class FormTaskController {
         Tareas tarea = new Tareas();
 
         // Validate all completed
-        if (txtNombre.getText().isEmpty()||txtDescripcion.getText().isEmpty()||cmbEstado.getSelectionModel().isEmpty()||cmbCategoria.getSelectionModel().isEmpty()){
-            mostrarAlerta("Error", "Debe completar la info sobre la tarea");
-        }else {
+//        if (txtNombre.getText().isEmpty()||txtDescripcion.getText().isEmpty()||cmbEstado.getSelectionModel().isEmpty()||cmbCategoria.getSelectionModel().isEmpty()){
+//            mostrarAlerta("Error", "Debe completar la info sobre la tarea");
+//        }else {
             //Insert into database
             tarea.setId_tareas(id);
             tarea.setTitulo(txtNombre.getText());
-//            tarea.setId_categoria("");
+
+            String categoria =  cmbCategoria.getSelectionModel().getSelectedItem().toString();
+            int id_categoria=CategoriasDAO.getIdCategoria(categoria);
+            System.out.println(id_categoria);
             id=0;
             eliminarCampos();
         }
-    }
+   // }
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;

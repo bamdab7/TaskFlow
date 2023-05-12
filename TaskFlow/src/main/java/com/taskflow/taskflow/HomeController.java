@@ -84,8 +84,6 @@ public class HomeController implements Initializable {
             dialogStage.setScene(new Scene(root));
             dialogStage.setTitle("Añadir formulario");
 
-            dialogController.setDialogStage(dialogStage);
-
             //Setting the categories in the combobox
             if(CategoriasDAO.getAllCategories().isEmpty()){
                 dialogController.cmbCategoria.setDisable(true);
@@ -95,6 +93,7 @@ public class HomeController implements Initializable {
                 dialogController.cmbCategoria.setItems(CategoriasDAO.getAllCategories());
             }
 
+            dialogController.setDialogStage(dialogStage);
             dialogStage.showAndWait();
 
 

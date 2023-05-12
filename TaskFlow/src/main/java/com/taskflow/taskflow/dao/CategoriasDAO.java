@@ -43,7 +43,7 @@ public class CategoriasDAO {
     public static ObservableList<String> getAllCategories(){
         try {
             conn = getConnection();
-            String sql = "SELECT DISTINCT nombre FROM categorias";
+            String sql = "SELECT* FROM categorias";
             PreparedStatement ps = conn.prepareStatement(sql);
             //Update in case someone adds another category
             items.removeAll(items);
@@ -55,6 +55,24 @@ public class CategoriasDAO {
         } catch (SQLException e) {
             System.out.printf("Error al obtener las categorias.\n Error: " + e.getMessage());
             return null;
+        }
+    }
+
+    public static int getIdCategoria(String nombre){
+        try {
+            int id = 0;
+            conn = getConnection();
+            String sql = "SELECT id_categorias FROM categorias WHERE nombre LIKE '" + nombre + "'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            //Update in case someone adds another category
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+               id = rs.getInt("id_categorias");
+            }
+            return id;
+        } catch (SQLException e) {
+            System.out.printf("Error al obtener el id de categoria.\n Error: " + e.getMessage());
+            return 0;
         }
     }
 }
