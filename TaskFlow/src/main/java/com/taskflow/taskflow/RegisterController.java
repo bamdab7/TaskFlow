@@ -78,7 +78,7 @@ public class RegisterController implements Initializable {
         alert.showAndWait();
     }
 
-    public void linkRegister(ActionEvent actionEvent) {
+public void linkRegister(ActionEvent actionEvent) {
         //Scene Login
          Scene sceneLogin = TaskFlowApplication.sceneLogin;
          Stage stageLogin = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();

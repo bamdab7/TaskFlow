@@ -1,11 +1,18 @@
 package com.taskflow.taskflow;
 
 import com.jfoenix.controls.JFXButton;
+import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -64,7 +71,37 @@ public class HomeController implements Initializable {
     }
 
     public void btnAdd(ActionEvent actionEvent) {
+        //Opens a window, that contais form
+          try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("form-task-view.fxml"));
+            Parent root = loader.load();
+            //Calling the controller of the dialog
+            FormTaskController dialogController = loader.getController();
+
+            Stage dialogStage = new Stage();
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(btnAdd.getScene().getWindow());
+            dialogStage.setScene(new Scene(root));
+            dialogStage.setTitle("Añadir formulario");
+
+            dialogController.setDialogStage(dialogStage);
+
+            //Setting the categories in the combobox
+            if(CategoriasDAO.getAllCategories().isEmpty()){
+                dialogController.cmbCategoria.setDisable(true);
+                dialogController.cmbCategoria.setPromptText("No hay categorias");
+            }else{
+               // System.out.println(CategoriasDAO.getAllCategories());
+                dialogController.cmbCategoria.setItems(CategoriasDAO.getAllCategories());
+            }
+
+            dialogStage.showAndWait();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-
 }
+
+

@@ -1,15 +1,17 @@
 package com.taskflow.taskflow.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.*;
 
 public class CategoriasDAO {
-    Connection conn;
+    static Connection conn;
+
+    static ObservableList<String> items = FXCollections.observableArrayList();
 
     //Connect to the database
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost/gestion_tareas", "root", "");
             //System.out.print("Conexion establecida");
@@ -36,6 +38,23 @@ public class CategoriasDAO {
         } catch (SQLException e) {
              System.out.printf("Error al crear la base de datos CATEGORIAS.\n Error: " +e.getMessage());;
         }
+    }
 
+    public static ObservableList<String> getAllCategories(){
+        try {
+            conn = getConnection();
+            String sql = "SELECT DISTINCT nombre FROM categorias";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            //Update in case someone adds another category
+            items.removeAll(items);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+                items.add(rs.getString("nombre"));
+            }
+            return items;
+        } catch (SQLException e) {
+            System.out.printf("Error al obtener las categorias.\n Error: " + e.getMessage());
+            return null;
+        }
     }
 }
