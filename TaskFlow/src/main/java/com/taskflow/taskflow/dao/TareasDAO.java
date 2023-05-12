@@ -63,4 +63,9 @@ public class TareasDAO {
         }
         return tareasList;
     }
+
+    //Inserts into database
+    public void insertarTareas(){
+
+    }
 }
