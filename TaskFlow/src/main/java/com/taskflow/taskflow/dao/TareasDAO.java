@@ -65,7 +65,17 @@ public class TareasDAO {
     }
 
     //Inserts into database
-    public void insertarTareas(){
-
+    public void insertarTareas(Tareas tareas){
+        try {
+            conn = getConnection();
+            String query ="INSERT INTO tareas (id_tareas, titulo, descripcion, estado, usuario_id, categoria_id) VALUES ('" +
+           tareas.getId_tareas() + "','" + tareas.getTitulo() + "','" + tareas.getDescripcion() + "','" + tareas.getEstado()+
+            "','" + tareas.getId_usuarios() + "','" + tareas.getId_categoria() + "')";
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.println("Error al insertar las tareas.\n Error:" + e.getMessage());
+        }
     }
 }
