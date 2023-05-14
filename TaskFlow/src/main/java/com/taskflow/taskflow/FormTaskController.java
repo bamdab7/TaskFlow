@@ -96,6 +96,5 @@ public class FormTaskController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tareasDAO = new TareasDAO();
-        homeController = new HomeController();
     }
 }
