@@ -78,4 +78,32 @@ public class TareasDAO {
             System.out.println("Error al insertar las tareas.\n Error:" + e.getMessage());
         }
     }
+
+    //Edit the task, only the status
+    public void editarTareas(Tareas tareas){
+        try {
+            conn = getConnection();
+            String query ="UPDATE tareas " +
+                    "SET estado = '" + tareas.getEstado()
+                    + "' WHERE id_tareas = " + tareas.getId_tareas();
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.printf("Error al editar las tareas. \n Error: " + e.getMessage());
+        }
+    }
+    //Delete the task
+    public void eliminarTarea(Tareas tarea){
+        try {
+            conn = getConnection();
+            String query = "DELETE from tareas WHERE id_tareas = " + tarea.getId_tareas();
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.printf("Error eliminando la tarea. \n Error:" + e.getMessage()   );
+        }
+    }
+
 }
