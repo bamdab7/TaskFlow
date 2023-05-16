@@ -33,9 +33,6 @@ public class FormTaskController implements Initializable {
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
-         // Action when u click on Acept
-        okClicked = true;
-        dialogStage.close();
 
         //ACTIONS
         Tareas tarea = new Tareas();
@@ -44,6 +41,9 @@ public class FormTaskController implements Initializable {
         if (txtNombre.getText().isEmpty()||txtDescripcion.getText().isEmpty()||cmbEstado.getSelectionModel().isEmpty()||cmbCategoria.getSelectionModel().isEmpty()){
             mostrarAlerta("Error", "Debe completar la info sobre la tarea");
         }else {
+                // Action when u click on Acept
+            okClicked = true;
+            dialogStage.close();
             //GETTING THE INFO
             tarea.setId_tareas(0);
             tarea.setTitulo(txtNombre.getText());
