@@ -42,12 +42,12 @@ public class TareasDAO {
     }
 
     //Getting the task from the database
-    public ObservableList<Tareas> obtenerListadoTareas(){
+    public ObservableList<Tareas> obtenerListadoTareas(Integer user){
         ObservableList<Tareas> tareasList = FXCollections.observableArrayList();
         try{
              // List<Tareas> tareas = new ArrayList<>();
             Connection conn = getConnection();
-            String query = "SELECT * FROM tareas";
+            String query = "SELECT * FROM tareas WHERE usuario_id = " + user;
             Statement st;
             ResultSet rs;
             st = conn.createStatement();

@@ -3,7 +3,9 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
+import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Tareas;
+import com.taskflow.taskflow.pojo.Usuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +34,6 @@ public class HomeController implements Initializable {
     public Text nombreUsuario;
 
     public Stage dialogo;
-    //Calling classes
     TareasDAO tareasDAO;
 
     @Override
@@ -44,11 +45,7 @@ public class HomeController implements Initializable {
             System.out.printf("No se ha podido establecer la conexion. Error: " + e.getMessage());
         }
         System.out.println("Conexion conseguida");
-        try {
-            mostrarTareas();
-        } catch (SQLException e) {
-            System.out.printf("No se pudieron mostrar las tareas. Error: " +e.getMessage());
-        }
+
         //If we click twice in the table, opens a dialog that show us the details of the task selectet
         tabladb.setOnMouseClicked(event -> {
             if(event.getClickCount() == 2){
@@ -84,7 +81,7 @@ public class HomeController implements Initializable {
 
     //Show the task in the table, put every time you want to refresh the table ( searching or refresing the app)
     public void mostrarTareas() throws SQLException {
-        tabladb.setItems(tareasDAO.obtenerListadoTareas());
+        tabladb.setItems(tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario()));
     }
 
     public void btnBuscar(ActionEvent actionEvent) {
@@ -137,7 +134,6 @@ public class HomeController implements Initializable {
 
             dialogController.setDialogStage(dialogStage);
             dialogStage.showAndWait();
-
 
         } catch (IOException e) {
               System.out.println("Error: " + e.getMessage());

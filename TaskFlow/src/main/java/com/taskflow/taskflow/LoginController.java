@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
@@ -51,7 +52,11 @@ public class LoginController implements Initializable {
 
             //Change the name of the user
             TaskFlowApplication.controladorHome.nombreUsuario.setText(" " + UsuariosDAO.getUser(user.getUsername()).getNombre());
-
+            try {
+                TaskFlowApplication.controladorHome.mostrarTareas();
+            } catch (SQLException e) {
+                System.out.printf("Error al mostrar las tareas. \n Error: " +e.getMessage());
+            }
         }else{
             eliminarCampos();
             verification.setText("Usuario no encontrado");
