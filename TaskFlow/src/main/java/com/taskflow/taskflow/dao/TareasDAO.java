@@ -47,7 +47,10 @@ public class TareasDAO {
         try{
              // List<Tareas> tareas = new ArrayList<>();
             Connection conn = getConnection();
-            String query = "SELECT * FROM tareas WHERE usuario_id = " + user;
+          //  String query = "SELECT * FROM tareas WHERE usuario_id = " + user;
+
+            String query = "SELECT tareas.*, categorias.nombre AS nombre_categoria FROM tareas JOIN categorias ON tareas.categoria_id = categorias.id_categorias WHERE usuario_id = " + user;
+
             Statement st;
             ResultSet rs;
             st = conn.createStatement();
@@ -55,7 +58,7 @@ public class TareasDAO {
             Tareas tarea;
             //Getting task
             while ((rs.next())){
-                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getInt("categoria_id"));
+                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getString("nombre_categoria"));
                 tareasList.add(tarea);
             }
         }catch (Exception e){

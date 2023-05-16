@@ -154,7 +154,7 @@
           </TableColumn>
             <TableColumn editable="false" minWidth="7.0" prefWidth="140.0" sortable="false">
                 <cellValueFactory>
-                  <PropertyValueFactory property="id_categoria" />
+                  <PropertyValueFactory property="nombre_categoria" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn editable="false" prefWidth="106.0" sortable="false">

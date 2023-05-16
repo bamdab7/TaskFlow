@@ -7,7 +7,7 @@ public class Tareas {
     private String estado;
     private int id_usuarios;
     private int id_categoria; //categoria?
-
+    private String nombre_categoria;
     public Tareas() {
     }
 
@@ -18,6 +18,15 @@ public class Tareas {
         this.estado = estado;
         this.id_usuarios = id_usuarios;
         this.id_categoria = id_categoria;
+    }
+
+    public Tareas(Integer id_tareas, String titulo, String descripcion, String estado, int id_usuarios, String nombre_categoria) {
+        this.id_tareas = id_tareas;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.id_usuarios = id_usuarios;
+        this.nombre_categoria = nombre_categoria;
     }
 
     public Integer getId_tareas() {
@@ -66,6 +75,14 @@ public class Tareas {
 
     public void setId_categoria(int id_categoria) {
         this.id_categoria = id_categoria;
+    }
+
+    public String getNombre_categoria() {
+        return nombre_categoria;
+    }
+
+    public void setNombre_categoria(String nombre_categoria) {
+        this.nombre_categoria = nombre_categoria;
     }
 
     @Override
