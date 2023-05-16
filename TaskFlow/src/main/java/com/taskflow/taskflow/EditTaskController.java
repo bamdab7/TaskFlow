@@ -42,6 +42,12 @@ public class EditTaskController implements Initializable {
         dialogStage.close();
 
         //ACTIONS... DELETE ... UDPATE THE VIEW
+        tareasDAO.eliminarTarea(tarea1);
+        try {
+            TaskFlowApplication.controladorHome.mostrarTareas();
+        } catch (SQLException e) {
+            System.out.printf("Error al mostrar las tareas.\n Error: " +e.getMessage());
+        }
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
@@ -73,7 +79,6 @@ public class EditTaskController implements Initializable {
     public void btnCancelar(ActionEvent actionEvent) {
         //Close the window
         dialogStage= TaskFlowApplication.controladorHome.dialogo;
-        System.out.println("bnt cancelar prueba");
         dialogStage.close();
     }
 
