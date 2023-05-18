@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
    <top>
        <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
            <columnConstraints>
@@ -37,9 +37,9 @@
                  </ImageView>
             </graphic>
          </JFXButton>
-         <Text strokeType="OUTSIDE" fx:id="nombreUsuario" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" textAlignment="CENTER" wrappingWidth="87.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" textAlignment="CENTER" wrappingWidth="108.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
          </Text>
-           <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+           <ImageView fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                <GridPane.margin>
                    <Insets right="5.0" />
                </GridPane.margin>
@@ -60,7 +60,7 @@
                <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES" />
                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
            </rowConstraints>
-           <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #cccccc; -fx-background-radius: 10; -fx-border-radius: 10;">
+           <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
                <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="25.0" prefWidth="108.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
@@ -135,17 +135,20 @@
                <Insets bottom="5.0" top="5.0" />
             </padding>
            </VBox>
-         <JFXButton fx:id="btnAdd" onAction="#btnAdd" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #5CB85C; -fx-background-radius: 10;" GridPane.rowIndex="1">
+         <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5CB85C; -fx-background-radius: 10;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../../../icons/add.png" />
                 </ImageView>
             </graphic>
          </JFXButton>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
        </GridPane>
    </left>
    <center> <!-- TABLA QUE MOSTRARA LAS TAREAS, SOLO EL TITUO, LA CATEGORIA Y EL ESTADO -->
-      <TableView fx:id="tabladb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 15;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
+      <TableView fx:id="tabladb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn editable="false" prefWidth="232.0" sortable="false">
               <cellValueFactory>

@@ -1,17 +1,26 @@
 /* styles for table in home controller */
 
-.table-view { /* background color */
-    -fx-background-color: #D3D3D3;
+ .table-view { /* background color */
+    -fx-background-color: #F5FFFA;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
 }
 .table-row-cell {
     -fx-padding: 10px; /* spacing between rows */
-    -fx-background-color: #D3D3D3; /* background color for rows*/
+    -fx-background-color: #F5FFFA; /* background color for rows*/
     -fx-font-size: 14px;
 }
 /* making header invisible */
 .table-view .column-header-background {
     visibility: hidden;
 }
-
-
-
+/* change the text in the row */
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #708090;
+}
+.table-view .column-header, .table-view .filler{
+    -fx-background-color: transparent;
+}
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-table-cell-border-color: transparent;
+}
