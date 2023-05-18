@@ -88,6 +88,8 @@ public class TareasDAO {
             conn = getConnection();
             String query ="UPDATE tareas " +
                     "SET estado = '" + tareas.getEstado()
+                    + "' , titulo = '" + tareas.getTitulo()
+                    + "' , descripcion = '" + tareas.getDescripcion()
                     + "' WHERE id_tareas = " + tareas.getId_tareas();
             Statement st;
             st = conn.createStatement();
