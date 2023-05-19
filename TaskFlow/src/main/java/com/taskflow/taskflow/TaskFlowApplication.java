@@ -21,6 +21,7 @@ public class TaskFlowApplication extends Application {
     public static LoginController controladorLogin;
     public static HomeController controladorHome;
     public static RegisterController controladorRegister;
+    public static CategoriasController controladorCategorias;
 
     public static UsuariosDAO users = new UsuariosDAO();
     public static CategoriasDAO categorias = new CategoriasDAO();
@@ -30,6 +31,7 @@ public class TaskFlowApplication extends Application {
     public static Scene sceneHome;
     public static Scene sceneRegister;
     public static Scene sceneLogin;
+    public static Scene sceneCategorias;
     @Override
     public void start(Stage stage) throws IOException, SQLException {
 
@@ -47,6 +49,12 @@ public class TaskFlowApplication extends Application {
             Parent rootRegister = fxmlLoaderRegister.load();
             controladorRegister = fxmlLoaderRegister.getController();
             sceneRegister = new Scene(rootRegister, 656,400);
+
+        FXMLLoader fxmlLoaderCategorias = new FXMLLoader(TaskFlowApplication.class.getResource("categories-view.fxml"));
+            Parent rootCategorias = fxmlLoaderCategorias.load();
+            controladorCategorias = fxmlLoaderCategorias.getController();
+            sceneCategorias = new Scene(rootCategorias, 646,394);
+
 
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
            // Parent rootLogin = fxmlLoaderLogin.load(); //Do not use this if this is the first scene lauched
