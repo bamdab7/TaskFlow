@@ -78,7 +78,7 @@
                        <Insets bottom="15.0" left="5.0" top="10.0" />
                    </padding>
                </JFXButton>
-               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" prefHeight="56.0" prefWidth="100.0" text="Categorias">
+               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" prefHeight="56.0" prefWidth="100.0" text="Categorias">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/categories.png" />
@@ -102,16 +102,16 @@
        </GridPane>
    </left>
    <center>
-      <TableView fx:id="tablacategorias" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablacategorias" prefHeight="330.0" prefWidth="356.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
          <columns>
-            <TableColumn editable="false" minWidth="7.0" prefWidth="140.0" sortable="false">
+            <TableColumn editable="false" minWidth="7.0" prefWidth="274.0" sortable="false">
                <cellValueFactory>
                   <PropertyValueFactory property="nombre" />
                </cellValueFactory>
             </TableColumn>
          </columns>
          <BorderPane.margin>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            <Insets bottom="30.0" left="5.0" right="200.0" top="5.0" />
          </BorderPane.margin>
          <opaqueInsets>
             <Insets />

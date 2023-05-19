@@ -4,9 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -35,10 +38,14 @@ public class CategoriasController implements Initializable {
     }
 
     public void bntHome(ActionEvent actionEvent) {
+        //Sends to another scene
+        Scene sceneHome = TaskFlowApplication.sceneHome;
+        Stage stageHome = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+
+        stageHome.setScene(sceneHome);
+        stageHome.show();
     }
 
-    public void btnCategorias(ActionEvent actionEvent) {
-    }
 
     public void btnAdd(ActionEvent actionEvent) {
     }
