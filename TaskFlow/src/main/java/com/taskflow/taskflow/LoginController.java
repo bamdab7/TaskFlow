@@ -50,8 +50,10 @@ public class LoginController implements Initializable {
             stageHome.setScene(sceneHome);
             stageHome.show();
 
-            //Change the name of the user
-            TaskFlowApplication.controladorHome.nombreUsuario.setText(" " + UsuariosDAO.getUser(user.getUsername()).getNombre());
+            //Change the name of the user in all the scenes i want :)
+            TaskFlowApplication.controladorHome.nombreUsuario.setText("Bienvenid@ " + UsuariosDAO.getUser(user.getUsername()).getNombre());
+            TaskFlowApplication.controladorCategorias.nombreUsuario.setText("Bienvenid@ " + UsuariosDAO.getUser(user.getUsername()).getNombre());
+
             try {
                 TaskFlowApplication.controladorHome.mostrarTareas();
             } catch (SQLException e) {

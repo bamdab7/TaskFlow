@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E6E6FA;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.CategoriasController">
@@ -28,13 +29,18 @@
            <BorderPane.margin>
                <Insets bottom="5.0" top="5.0" />
            </BorderPane.margin>
-           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" textAlignment="CENTER" wrappingWidth="108.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" wrappingWidth="171.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
            <ImageView fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                <GridPane.margin>
                    <Insets right="5.0" />
                </GridPane.margin>
                <Image url="@../../../icons/user.png" />
            </ImageView>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LISTADO DE CATEGORIAS" textAlignment="CENTER" wrappingWidth="255.13671875" GridPane.columnIndex="1">
+            <font>
+               <Font name="System Italic" size="12.0" />
+            </font>
+         </Text>
        </GridPane>
    </top>
    <padding>
@@ -43,58 +49,53 @@
    <left>
        <GridPane BorderPane.alignment="CENTER">
            <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            </columnConstraints>
            <rowConstraints>
-               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <BorderPane.margin>
-               <Insets top="5.0"/>
+               <Insets top="5.0" />
            </BorderPane.margin>
-           <VBox prefHeight="160.0" prefWidth="100.0"
-                 style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
+           <VBox prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
                <GridPane.margin>
-                   <Insets/>
+                   <Insets />
                </GridPane.margin>
                <padding>
-                   <Insets bottom="5.0" top="5.0"/>
+                   <Insets bottom="5.0" top="5.0" />
                </padding>
-               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="62.0"
-                          prefWidth="100.0" text="Inicio">
+               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="62.0" prefWidth="100.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../icons/home.png"/>
+                           <Image url="@../../../icons/home.png" />
                        </ImageView>
                    </graphic>
                    <VBox.margin>
-                       <Insets/>
+                       <Insets />
                    </VBox.margin>
                    <padding>
-                       <Insets bottom="15.0" left="5.0" top="10.0"/>
+                       <Insets bottom="15.0" left="5.0" top="10.0" />
                    </padding>
                </JFXButton>
-               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" prefHeight="56.0"
-                          prefWidth="100.0" text="Categorias">
+               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" prefHeight="56.0" prefWidth="100.0" text="Categorias">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../icons/categories.png"/>
+                           <Image url="@../../../icons/categories.png" />
                        </ImageView>
                    </graphic>
                    <VBox.margin>
-                       <Insets/>
+                       <Insets />
                    </VBox.margin>
                    <padding>
-                       <Insets bottom="15.0" left="5.0" top="10.0"/>
+                       <Insets bottom="15.0" left="5.0" top="10.0" />
                    </padding>
                </JFXButton>
            </VBox>
-           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0"
-                      prefWidth="79.0" style="-fx-background-color: #5CB85C; -fx-background-radius: 10;"
-                      GridPane.halignment="CENTER" GridPane.rowIndex="1">
+           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #5CB85C; -fx-background-radius: 10;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
               <graphic>
                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                      <Image url="@../../../icons/add.png"/>
+                      <Image url="@../../../icons/add.png" />
                   </ImageView>
               </graphic>
            </JFXButton>
