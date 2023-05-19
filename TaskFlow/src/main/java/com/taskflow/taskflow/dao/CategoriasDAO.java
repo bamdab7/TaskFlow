@@ -1,5 +1,6 @@
 package com.taskflow.taskflow.dao;
 
+import com.taskflow.taskflow.pojo.Categorias;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -40,6 +41,8 @@ public class CategoriasDAO {
         }
     }
 
+
+    //Only get the name and put it in a simple List
     public static ObservableList<String> getAllCategories(){
         try {
             conn = getConnection();
@@ -56,6 +59,26 @@ public class CategoriasDAO {
             System.out.printf("Error al obtener las categorias.\n Error: " + e.getMessage());
             return null;
         }
+    }
+    //Another method to get all categories and put them in the table
+    public ObservableList<Categorias> obtenerListadoCategorias() {
+        ObservableList<Categorias> categoriasList = FXCollections.observableArrayList();
+        try {
+            conn = getConnection();
+            String query = "SELECT * FROM categorias";
+            Statement st;
+            ResultSet rs;
+                st = conn.createStatement();
+                rs = st.executeQuery(query);
+                Categorias categoria;
+            while ((rs.next())){
+                categoria = new Categorias(rs.getInt("id_categorias"), rs.getString("nombre"));
+                categoriasList.add(categoria);
+            }
+        } catch (SQLException e) {
+            System.out.printf("Error al obtener el listado de categorias. \n Error: " + e.getMessage());
+        }
+        return categoriasList;
     }
 
     public static int getIdCategoria(String nombre){

@@ -9,6 +9,7 @@ import com.taskflow.taskflow.pojo.Usuarios;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -65,6 +66,7 @@ public class HomeController implements Initializable {
         Tooltip.install(btnAdd, tooltipAdd);
 
         tareasDAO = new TareasDAO();
+
         try {
             tareasDAO.getConnection();
         } catch (SQLException e) {
@@ -116,7 +118,15 @@ public class HomeController implements Initializable {
 
 
     public void btnCategorias(ActionEvent actionEvent) {
-        //Show list of categorias(?
+        //Opens a new scene that contains the categories
+        Scene sceneCategorias = TaskFlowApplication.sceneCategorias;
+        Stage stageCategorias = (Stage) ( (Node) actionEvent.getSource()).getScene().getWindow();
+
+        stageCategorias.setScene(sceneCategorias);
+        stageCategorias.show();
+
+        //Call the controller and the metod that shows the categories
+        TaskFlowApplication.controladorCategorias.mostrarCategorias();
     }
 
     public void btnPendiente(ActionEvent actionEvent) {
