@@ -11,10 +11,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Tooltip;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,12 +36,34 @@ public class HomeController implements Initializable {
     public JFXButton btnAdd;
     public TableView tabladb;
     public Text nombreUsuario;
-
     public Stage dialogo;
     TareasDAO tareasDAO;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //Creating the tooltips
+        Tooltip tooltipHome = new Tooltip("Estas en home!!");
+        tooltipHome.setShowDuration(Duration.millis(500));
+        Tooltip.install(btnHome, tooltipHome);
+
+        Tooltip tooltipCat = new Tooltip("Listado de categorias");
+        tooltipCat.setShowDuration(Duration.millis(500));
+        Tooltip.install(btnCategorias, tooltipCat);
+
+        Tooltip tooltipEstado1 = new Tooltip("Buscar por estado: PENDIENTE");
+        tooltipEstado1.setShowDuration(Duration.millis(500));
+        Tooltip.install(btnPendiente, tooltipEstado1);
+        Tooltip tooltipEstado2 = new Tooltip("Buscar por estado: TERMINADO");
+        tooltipEstado2.setShowDuration(Duration.millis(500));
+        Tooltip.install(btnTerminado, tooltipEstado2);
+        Tooltip tooltipEstado3 = new Tooltip("Buscar por estado: PROGRESO");
+        tooltipEstado3.setShowDuration(Duration.millis(500));
+        Tooltip.install(btnProgreso, tooltipEstado3);
+
+        Tooltip tooltipAdd = new Tooltip("Añade nueva tarea!");
+        tooltipAdd.setShowDuration(Duration.millis(2000));
+        Tooltip.install(btnAdd, tooltipAdd);
+
         tareasDAO = new TareasDAO();
         try {
             tareasDAO.getConnection();
@@ -88,10 +114,6 @@ public class HomeController implements Initializable {
         //Search by categoria or name maybe
     }
 
-    public void bntHome(ActionEvent actionEvent) {
-        //Redirect back to home, do if after the buttons
-        System.out.println("Prueba de botones");
-    }
 
     public void btnCategorias(ActionEvent actionEvent) {
         //Show list of categorias(?
