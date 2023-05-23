@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -47,25 +48,25 @@
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
    <left>
-       <GridPane BorderPane.alignment="CENTER">
+       <GridPane maxHeight="-Infinity" maxWidth="-Infinity" BorderPane.alignment="CENTER">
            <columnConstraints>
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            </columnConstraints>
            <rowConstraints>
-               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="224.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <BorderPane.margin>
                <Insets top="5.0" />
            </BorderPane.margin>
-           <VBox prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
+           <VBox prefHeight="95.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
                <GridPane.margin>
-                   <Insets />
+                   <Insets bottom="30.0" />
                </GridPane.margin>
                <padding>
                    <Insets bottom="5.0" top="5.0" />
                </padding>
-               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="62.0" prefWidth="100.0" text="Inicio">
+               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="49.0" prefWidth="100.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/home.png" />
@@ -75,10 +76,10 @@
                        <Insets />
                    </VBox.margin>
                    <padding>
-                       <Insets bottom="15.0" left="5.0" top="10.0" />
+                       <Insets bottom="15.0" left="10.0" top="10.0" />
                    </padding>
                </JFXButton>
-               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" prefHeight="56.0" prefWidth="100.0" text="Categorias">
+               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" prefHeight="48.0" prefWidth="100.0" text="Categorias">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/categories.png" />
@@ -88,17 +89,10 @@
                        <Insets />
                    </VBox.margin>
                    <padding>
-                       <Insets bottom="15.0" left="5.0" top="10.0" />
+                       <Insets bottom="15.0" left="10.0" top="10.0" />
                    </padding>
                </JFXButton>
            </VBox>
-           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-              <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                      <Image url="@../../../icons/add.png" />
-                  </ImageView>
-              </graphic>
-           </JFXButton>
        </GridPane>
    </left>
    <center>
@@ -111,11 +105,57 @@
             </TableColumn>
          </columns>
          <BorderPane.margin>
-            <Insets bottom="30.0" left="5.0" right="200.0" top="5.0" />
+            <Insets bottom="30.0" left="5.0" top="5.0" />
          </BorderPane.margin>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </TableView>
    </center>
+   <right>
+       <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="282.0" prefWidth="193.0"
+                 BorderPane.alignment="TOP_CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES"/>
+           </rowConstraints>
+           <TextField fx:id="txtNombre" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="159.0"
+                      promptText="Nombre de la categoria" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                      GridPane.valignment="CENTER">
+              <GridPane.margin>
+                  <Insets left="5.0" right="5.0"/>
+              </GridPane.margin>
+           </TextField>
+           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0"
+                      prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" text="Button"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <graphic>
+                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../../../icons/add.png"/>
+                   </ImageView>
+               </graphic>
+            <GridPane.margin>
+                <Insets bottom="5.0"/>
+            </GridPane.margin>
+           </JFXButton>
+           <JFXButton fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" onAction="#btnDelete"
+                      prefHeight="30.0" prefWidth="79.0"
+                      style="-fx-background-color: #DC143C; -fx-background-radius: 10;" GridPane.halignment="CENTER"
+                      GridPane.rowIndex="3" GridPane.valignment="CENTER">
+               <graphic>
+                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <Image url="@../../../icons/delete.png"/>
+                   </ImageView>
+               </graphic>
+           </JFXButton>
+           <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                 text="Gestiona las categorias aqui! (uso global, asi que se respetuoso)" textAlignment="CENTER"
+                 wrappingWidth="196.142578125" GridPane.valignment="CENTER"/>
+       </GridPane>
+   </right>
 </BorderPane>

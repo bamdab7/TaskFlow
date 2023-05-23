@@ -67,7 +67,7 @@
                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <JFXButton fx:id="btnHome" onAction="#btnHome" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="108.0" text="Inicio">
+               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome" prefHeight="25.0" prefWidth="108.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/home.png" />
@@ -77,7 +77,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" left="5.0" top="10.0" />
+                  <Insets bottom="15.0" left="10.0" top="10.0" />
                </padding>
             </JFXButton>
                <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" prefHeight="25.0" prefWidth="120.0" text="Categorias">
@@ -90,12 +90,12 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="15.0" left="5.0" top="10.0" />
+                  <Insets bottom="15.0" left="10.0" top="10.0" />
                </padding>
                </JFXButton>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold" text="Ver" wrappingWidth="77.708984375">
                <VBox.margin>
-                  <Insets left="5.0" />
+                  <Insets left="10.0" />
                </VBox.margin>
                </Text>
                <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente" prefHeight="25.0" prefWidth="133.0" style="-fx-text-fill: #622E1D;" text="Pendiente">
@@ -108,7 +108,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
                </padding></JFXButton>
                <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso" prefHeight="25.0" prefWidth="129.0" style="-fx-text-fill: #b7950b;" text="Progreso">
                <graphic>
@@ -120,7 +120,7 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
                </padding></JFXButton>
                <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado" prefHeight="25.0" prefWidth="141.0" style="-fx-text-fill: #5bb830;" text="Terminado">
                <graphic>
@@ -132,10 +132,10 @@
                   <Insets />
                </VBox.margin>
                <padding>
-                  <Insets bottom="10.0" left="5.0" top="10.0" />
+                  <Insets bottom="10.0" left="10.0" top="10.0" />
                </padding></JFXButton>
             <GridPane.margin>
-               <Insets />
+               <Insets bottom="20.0" />
             </GridPane.margin>
             <padding>
                <Insets bottom="5.0" top="5.0" />
