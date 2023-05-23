@@ -2,17 +2,21 @@ package com.taskflow.taskflow;
 
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
+import com.taskflow.taskflow.pojo.Categorias;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class CategoriasController implements Initializable {
@@ -20,7 +24,10 @@ public class CategoriasController implements Initializable {
     public JFXButton btnHome;
     public JFXButton btnCategorias;
     public JFXButton btnAdd;
-    public TableView tablacategorias;
+    public TableView<Categorias> tablacategorias;
+    public JFXButton btnDelete;
+    public TextField txtNombre;
+    private int id;
 
     CategoriasDAO categoriasDAO;
     @Override
@@ -35,6 +42,15 @@ public class CategoriasController implements Initializable {
         Tooltip.install(btnCategorias, tooltipCat);
 
         categoriasDAO = new CategoriasDAO();
+
+        //In order to get the information
+        tablacategorias.setOnMouseClicked(event ->{
+            if(event.getClickCount() == 2){
+                Categorias categoria = tablacategorias.getSelectionModel().getSelectedItem();
+                txtNombre.setText(categoria.getNombre());
+                id = categoria.getId_categorias();
+            }
+        });
     }
 
     public void bntHome(ActionEvent actionEvent) {
@@ -44,13 +60,64 @@ public class CategoriasController implements Initializable {
 
         stageHome.setScene(sceneHome);
         stageHome.show();
+
+        try {
+            TaskFlowApplication.controladorHome.mostrarTareas();
+        } catch (SQLException e) {
+            System.out.printf("Error al mostrar tareas. \n Error: " +e.getMessage());
+        }
     }
 
 
     public void btnAdd(ActionEvent actionEvent) {
+        //Collects the values them in a form to add or Edit?¿
+        Categorias categoria = new Categorias();
+
+        categoria.setId_categorias(id);
+        categoria.setNombre(txtNombre.getText());
+
+        if(id == 0){
+            //So then insert
+            categoriasDAO.insertarCategoria(categoria);
+            id = 0;
+            //Update values
+            mostrarCategorias();
+            eliminarCampos();
+        }else {
+            //Update?
+             categoriasDAO.actualizarCategoria(categoria);
+             id = 0;
+             //Update values
+            mostrarCategorias();
+            eliminarCampos();
+        }
     }
 
     public void mostrarCategorias(){
         tablacategorias.setItems(categoriasDAO.obtenerListadoCategorias());
+    }
+
+    public void eliminarCampos(){
+            txtNombre.clear();
+    }
+
+    public void btnDelete(ActionEvent actionEvent) {
+        Categorias categorias = tablacategorias.getSelectionModel().getSelectedItem();
+        if(categorias == null){
+            //U must have select something
+             mostrarAlerta("Error", "Debe tener seleccionado una categoria");
+            }else{
+            categoriasDAO.eliminarCategoria(categorias);
+            mostrarCategorias();
+        }
+    }
+
+    //Shows an alert when something is wrong
+    private void mostrarAlerta(String titulo,String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
