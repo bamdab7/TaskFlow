@@ -98,4 +98,42 @@ public class CategoriasDAO {
             return 0;
         }
     }
+
+    //Creating methods to create and delete a category
+    public void eliminarCategoria(Categorias categoria){
+        try {
+            conn = getConnection();
+            String query = "DELETE FROM categorias WHERE id_categorias = " + categoria.getId_categorias();
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.printf("Error al eliminar una categoria. \n Error: " + e.getMessage());
+        }
+    }
+    public void insertarCategoria(Categorias categoria){
+        try {
+            conn = getConnection();
+            String query = "INSERT INTO categorias (id_categorias,nombre) VALUES ('" +
+                    categoria.getId_categorias() + "','" + categoria.getNombre() + "')";
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (SQLException e) {
+            System.out.printf("Error al insertar una categoria. \n Error: "+ e.getMessage());
+        }
+    }
+    public void actualizarCategoria(Categorias categoria){
+        try {
+            conn = getConnection();
+            String sql = "UPDATE categorias " +
+                    "SET nombre = '" + categoria.getNombre()
+                    + "' WHERE id_categorias = " + categoria.getId_categorias();
+            Statement st;
+            st = conn.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.printf("Error al actualizar la categoria. \n Error: "+ e.getMessage());
+        }
+    }
 }
