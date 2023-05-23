@@ -67,7 +67,7 @@
                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="108.0" text="Inicio">
+               <JFXButton fx:id="btnHome" onAction="#btnHome" alignment="BASELINE_LEFT" prefHeight="25.0" prefWidth="108.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/home.png" />

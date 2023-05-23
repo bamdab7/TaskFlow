@@ -4,11 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.util.List;
 
 public class TareasDAO {
-    Connection conn;
+    static Connection conn;
     //Get connection to the database
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         try{
             conn =DriverManager.getConnection("jdbc:mysql://localhost/gestion_tareas", "root", "");
             //System.out.print("Conexion establecida");
@@ -80,6 +81,27 @@ public class TareasDAO {
         } catch (SQLException e) {
             System.out.println("Error al insertar las tareas.\n Error:" + e.getMessage());
         }
+    }
+
+    //Searching for task due to the status
+    public ObservableList<Tareas> findTaskByStatus(String estado, int id_usuario){
+        ObservableList<Tareas> tareasList = FXCollections.observableArrayList();
+        try {
+            conn = getConnection();
+            String sql = "SELECT * FROM tareas WHERE estado LIKE '" + estado + "' AND usuario_id LIKE '" + id_usuario + "'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Tareas tarea;
+            //Getting task
+            while ((rs.next())){
+                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getInt("categoria_id"));
+                tareasList.add(tarea);
+            }
+            return tareasList;
+        } catch (SQLException e) {
+            System.out.printf("Error al encontrar por estado. \n Error: " + e.getMessage());
+        }
+        return tareasList;
     }
 
     //Edit the task, only the status

@@ -6,6 +6,7 @@ import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Tareas;
 import com.taskflow.taskflow.pojo.Usuarios;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,6 +24,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -112,6 +114,10 @@ public class HomeController implements Initializable {
         tabladb.setItems(tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario()));
     }
 
+    public void mostrarTareasEstado(ObservableList<Tareas> lista) throws SQLException {
+        tabladb.setItems(lista);
+    }
+
     public void btnBuscar(ActionEvent actionEvent) {
         //Search by categoria or name maybe
     }
@@ -131,14 +137,41 @@ public class HomeController implements Initializable {
 
     public void btnPendiente(ActionEvent actionEvent) {
         //Search by estado = pendiente
+        if(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()).isEmpty()){
+            tabladb.setItems(null);
+        }else {
+            try {
+                mostrarTareasEstado(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()));
+            } catch (SQLException e) {
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+            }
+        }
     }
 
     public void btnProgreso(ActionEvent actionEvent) {
         //Search by estado = progreso
+        if(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()).isEmpty()){
+            tabladb.setItems(null);
+        }else {
+            try {
+                mostrarTareasEstado(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()));
+            } catch (SQLException e) {
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+            }
+        }
     }
 
     public void btnTerminado(ActionEvent actionEvent) {
         //Search by estado = terminado
+        if(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()).isEmpty()){
+            tabladb.setItems(null);
+        }else {
+            try {
+                mostrarTareasEstado(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()));
+            } catch (SQLException e) {
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+            }
+        }
     }
 
     public void btnAdd(ActionEvent actionEvent) {
@@ -169,6 +202,14 @@ public class HomeController implements Initializable {
 
         } catch (IOException e) {
               System.out.println("Error: " + e.getMessage());
+        }
+    }
+
+    public void btnHome(ActionEvent actionEvent) {
+        try {
+            mostrarTareas();
+        } catch (SQLException e) {
+            System.out.printf("Error al mostrar tareas. \n Error: " + e.getMessage());
         }
     }
 }
