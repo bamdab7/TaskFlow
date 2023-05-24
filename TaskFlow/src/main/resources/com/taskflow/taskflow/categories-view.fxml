@@ -30,13 +30,7 @@
            <BorderPane.margin>
                <Insets bottom="5.0" top="5.0" />
            </BorderPane.margin>
-           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" wrappingWidth="171.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
-           <ImageView fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-               <GridPane.margin>
-                   <Insets right="5.0" />
-               </GridPane.margin>
-               <Image url="@../../../icons/user.png" />
-           </ImageView>
+           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0"  text="Name" wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER" textAlignment="CENTER"/>
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LISTADO DE CATEGORIAS" textAlignment="CENTER" wrappingWidth="255.13671875" GridPane.columnIndex="1">
             <font>
                <Font name="System Italic" size="12.0" />

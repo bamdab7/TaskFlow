@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/home.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
    <top>
        <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
            <columnConstraints>
@@ -29,28 +22,22 @@
            <BorderPane.margin>
                <Insets bottom="5.0" top="5.0" />
            </BorderPane.margin>
-           <TextField promptText="Buscar tareas..." fx:id="txtBuscar" style="-fx-font-style: italic;" GridPane.columnIndex="1">
+           <TextField fx:id="txtBuscar" promptText="Buscar tareas..." style="-fx-font-style: italic;" GridPane.columnIndex="1">
             <GridPane.margin>
                <Insets right="10.0" />
             </GridPane.margin></TextField>
             <JFXButton fx:id="btnBuscar" onAction="#btnClear" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
             <graphic>
                  <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/delete.png"/>
+                       <Image url="@../../../icons/delete.png" />
                    </ImageView>
             </graphic>
             <GridPane.margin>
                <Insets right="10.0" />
             </GridPane.margin>
          </JFXButton>
-         <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold;" text="Name" wrappingWidth="170.95703125" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+         <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          </Text>
-           <ImageView fitHeight="21.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-               <GridPane.margin>
-                   <Insets right="5.0" />
-               </GridPane.margin>
-               <Image url="@../../../icons/user.png" />
-           </ImageView>
            
        </GridPane>
    </top>
