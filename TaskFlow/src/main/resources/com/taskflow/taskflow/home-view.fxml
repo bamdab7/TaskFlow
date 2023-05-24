@@ -29,15 +29,15 @@
            <BorderPane.margin>
                <Insets bottom="5.0" top="5.0" />
            </BorderPane.margin>
-           <TextField promptText="Buscar tareas..." style="-fx-font-style: italic;" GridPane.columnIndex="1">
+           <TextField promptText="Buscar tareas..." fx:id="txtBuscar" style="-fx-font-style: italic;" GridPane.columnIndex="1">
             <GridPane.margin>
                <Insets right="10.0" />
             </GridPane.margin></TextField>
-            <JFXButton fx:id="btnBuscar" onAction="#btnBuscar" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+            <JFXButton fx:id="btnBuscar" onAction="#btnClear" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
             <graphic>
                  <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../../../icons/search.png" />
-                 </ImageView>
+                       <Image url="@../../../icons/delete.png"/>
+                   </ImageView>
             </graphic>
             <GridPane.margin>
                <Insets right="10.0" />

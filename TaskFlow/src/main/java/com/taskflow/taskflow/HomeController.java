@@ -3,19 +3,19 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
-import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Tareas;
-import com.taskflow.taskflow.pojo.Usuarios;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.DialogPane;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -24,9 +24,9 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 
 public class HomeController implements Initializable {
 
@@ -40,7 +40,9 @@ public class HomeController implements Initializable {
     public TableView tabladb;
     public Text nombreUsuario;
     public Stage dialogo;
+    public TextField txtBuscar;
     TareasDAO tareasDAO;
+    ObservableList<Tareas> listadoTareas;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -111,16 +113,46 @@ public class HomeController implements Initializable {
 
     //Show the task in the table, put every time you want to refresh the table ( searching or refresing the app)
     public void mostrarTareas() throws SQLException {
-        tabladb.setItems(tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario()));
+        listadoTareas = tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario());
+        tabladb.setItems(listadoTareas);
     }
 
-    public void mostrarTareasEstado(ObservableList<Tareas> lista) throws SQLException {
+    public void mostrarTareasCondicion(ObservableList<Tareas> lista) throws SQLException {
         tabladb.setItems(lista);
     }
 
-    public void btnBuscar(ActionEvent actionEvent) {
-        //Search by categoria or name maybe
+//    public void btnBuscar(ActionEvent actionEvent) {
+//        //Search by categoria or name maybe
+//       String nombre =  txtBuscar.getText();
+//       if(tareasDAO.findTaskByName(nombre,LoginController.user.getId_usuario()).isEmpty()){
+//            tabladb.setItems(null);
+//        }else {
+//            try {
+//                mostrarTareasCondicion(tareasDAO.findTaskByName(nombre,LoginController.user.getId_usuario()));
+//            } catch (SQLException e) {
+//                System.out.printf("Error al mostrar las tareas por nombre: \n Error: "+ e.getMessage());
+//            }
+//        }
+//    }
+    public void busquedaDinamica(){
+        FilteredList<Tareas> listadoTareasBusqueda = new FilteredList<>(listadoTareas, e -> true);
+        txtBuscar.setOnKeyReleased( e ->{
+            txtBuscar.textProperty().addListener((observableValue, oldValue, newValue)->{
+                listadoTareasBusqueda.setPredicate((Predicate<? super Tareas>) tareas->{
+                    if(newValue == null || newValue.isEmpty()){
+                        return true;
+                    }else if(tareas.getTitulo().toLowerCase().contains(newValue.toLowerCase())){
+                        return  true;
+                    }
+                    return false;
+                });
+        });
+            SortedList<Tareas> sortedList = new SortedList<>(listadoTareasBusqueda);
+            sortedList.comparatorProperty().bind(tabladb.comparatorProperty());
+            tabladb.setItems(sortedList);
+        });
     }
+
 
 
     public void btnCategorias(ActionEvent actionEvent) {
@@ -141,7 +173,7 @@ public class HomeController implements Initializable {
             tabladb.setItems(null);
         }else {
             try {
-                mostrarTareasEstado(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()));
             } catch (SQLException e) {
                 System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
             }
@@ -154,7 +186,7 @@ public class HomeController implements Initializable {
             tabladb.setItems(null);
         }else {
             try {
-                mostrarTareasEstado(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()));
             } catch (SQLException e) {
                 System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
             }
@@ -167,7 +199,7 @@ public class HomeController implements Initializable {
             tabladb.setItems(null);
         }else {
             try {
-                mostrarTareasEstado(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()));
             } catch (SQLException e) {
                 System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
             }
@@ -203,6 +235,7 @@ public class HomeController implements Initializable {
         } catch (IOException e) {
               System.out.println("Error: " + e.getMessage());
         }
+          busquedaDinamica();
     }
 
     public void btnHome(ActionEvent actionEvent) {
@@ -211,6 +244,10 @@ public class HomeController implements Initializable {
         } catch (SQLException e) {
             System.out.printf("Error al mostrar tareas. \n Error: " + e.getMessage());
         }
+    }
+
+    public void btnClear(ActionEvent actionEvent) {
+        txtBuscar.clear();
     }
 }
 

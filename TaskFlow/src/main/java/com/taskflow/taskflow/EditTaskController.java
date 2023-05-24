@@ -48,6 +48,7 @@ public class EditTaskController implements Initializable {
         } catch (SQLException e) {
             System.out.printf("Error al mostrar las tareas.\n Error: " +e.getMessage());
         }
+        TaskFlowApplication.controladorHome.busquedaDinamica();
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
@@ -70,6 +71,7 @@ public class EditTaskController implements Initializable {
         } catch (SQLException e) {
             System.out.printf("Error al mostrar las tareas. \n Error: " + e.getMessage());
         }
+        TaskFlowApplication.controladorHome.busquedaDinamica();
     }
 
     public boolean isOkClicked(){

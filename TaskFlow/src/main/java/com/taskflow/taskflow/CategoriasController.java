@@ -66,6 +66,7 @@ public class CategoriasController implements Initializable {
         } catch (SQLException e) {
             System.out.printf("Error al mostrar tareas. \n Error: " +e.getMessage());
         }
+        TaskFlowApplication.controladorHome.busquedaDinamica();;
     }
 
 

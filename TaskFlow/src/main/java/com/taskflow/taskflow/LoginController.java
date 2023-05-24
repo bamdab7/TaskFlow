@@ -59,6 +59,7 @@ public class LoginController implements Initializable {
             } catch (SQLException e) {
                 System.out.printf("Error al mostrar las tareas. \n Error: " +e.getMessage());
             }
+            TaskFlowApplication.controladorHome.busquedaDinamica();
         }else{
             eliminarCampos();
             verification.setText("Usuario no encontrado");

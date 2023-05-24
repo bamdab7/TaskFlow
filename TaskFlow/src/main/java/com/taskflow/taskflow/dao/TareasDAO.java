@@ -103,6 +103,26 @@ public class TareasDAO {
         }
         return tareasList;
     }
+       //Searching for task
+    public ObservableList<Tareas> findTaskByName(String nombre, int id_usuario){
+        ObservableList<Tareas> tareasList = FXCollections.observableArrayList();
+        try {
+            conn = getConnection();
+            String sql = "SELECT * FROM tareas WHERE titulo LIKE '%" + nombre + "%'AND usuario_id LIKE '" + id_usuario + "'";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            Tareas tarea;
+
+            while ((rs.next())){
+                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getInt("categoria_id"));
+                tareasList.add(tarea);
+            }
+            return tareasList;
+        } catch (SQLException e) {
+            System.out.printf("Error al buscar la tarea por el nombre. \n Error: " + e.getMessage());
+        }
+        return tareasList;
+    }
 
     //Edit the task, only the status
     public void editarTareas(Tareas tareas){
@@ -132,5 +152,4 @@ public class TareasDAO {
             System.out.printf("Error eliminando la tarea. \n Error:" + e.getMessage()   );
         }
     }
-
 }
