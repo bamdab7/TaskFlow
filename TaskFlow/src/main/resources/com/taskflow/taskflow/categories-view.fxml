@@ -30,7 +30,7 @@
            <BorderPane.margin>
                <Insets bottom="5.0" top="5.0" />
            </BorderPane.margin>
-           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0"  text="Name" wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER" textAlignment="CENTER"/>
+           <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="LISTADO DE CATEGORIAS" textAlignment="CENTER" wrappingWidth="255.13671875" GridPane.columnIndex="1">
             <font>
                <Font name="System Italic" size="12.0" />
@@ -47,36 +47,23 @@
                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            </columnConstraints>
            <rowConstraints>
-               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="143.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="224.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="224.0" minHeight="10.0" prefHeight="170.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <BorderPane.margin>
                <Insets top="5.0" />
            </BorderPane.margin>
-           <VBox prefHeight="95.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
+           <VBox prefHeight="76.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
                <GridPane.margin>
                    <Insets bottom="30.0" />
                </GridPane.margin>
                <padding>
                    <Insets bottom="5.0" top="5.0" />
                </padding>
-               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="49.0" prefWidth="100.0" text="Inicio">
+               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="47.0" prefWidth="100.0" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/home.png" />
-                       </ImageView>
-                   </graphic>
-                   <VBox.margin>
-                       <Insets />
-                   </VBox.margin>
-                   <padding>
-                       <Insets bottom="15.0" left="10.0" top="10.0" />
-                   </padding>
-               </JFXButton>
-               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" prefHeight="48.0" prefWidth="100.0" text="Categorias">
-                   <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                           <Image url="@../../../icons/categories.png" />
                        </ImageView>
                    </graphic>
                    <VBox.margin>
@@ -107,49 +94,39 @@
       </TableView>
    </center>
    <right>
-       <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="282.0" prefWidth="193.0"
-                 BorderPane.alignment="TOP_CENTER">
+       <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="282.0" prefWidth="193.0" BorderPane.alignment="TOP_CENTER">
            <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
            </columnConstraints>
            <rowConstraints>
-               <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES"/>
-               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES"/>
+               <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="119.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="57.0" vgrow="SOMETIMES" />
+               <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
            </rowConstraints>
-           <TextField fx:id="txtNombre" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="159.0"
-                      promptText="Nombre de la categoria" GridPane.halignment="CENTER" GridPane.rowIndex="1"
-                      GridPane.valignment="CENTER">
+           <TextField fx:id="txtNombre" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="159.0" promptText="Nombre de la categoria" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
               <GridPane.margin>
-                  <Insets left="5.0" right="5.0"/>
+                  <Insets left="5.0" right="5.0" />
               </GridPane.margin>
            </TextField>
-           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0"
-                      prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" text="Button"
-                      GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+           <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
                <graphic>
                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/add.png"/>
+                       <Image url="@../../../icons/add.png" />
                    </ImageView>
                </graphic>
             <GridPane.margin>
-                <Insets bottom="5.0"/>
+                <Insets bottom="5.0" />
             </GridPane.margin>
            </JFXButton>
-           <JFXButton fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" onAction="#btnDelete"
-                      prefHeight="30.0" prefWidth="79.0"
-                      style="-fx-background-color: #DC143C; -fx-background-radius: 10;" GridPane.halignment="CENTER"
-                      GridPane.rowIndex="3" GridPane.valignment="CENTER">
+           <JFXButton fx:id="btnDelete" alignment="CENTER" contentDisplay="CENTER" onAction="#btnDelete" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #DC143C; -fx-background-radius: 10;" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <graphic>
                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/delete.png"/>
+                       <Image url="@../../../icons/delete.png" />
                    </ImageView>
                </graphic>
            </JFXButton>
-           <Text strokeType="OUTSIDE" strokeWidth="0.0"
-                 text="Gestiona las categorias aqui! (uso global, asi que se respetuoso)" textAlignment="CENTER"
-                 wrappingWidth="196.142578125" GridPane.valignment="CENTER"/>
+           <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gestiona las categorias aqui! (uso global, asi que se respetuoso)" textAlignment="CENTER" wrappingWidth="196.142578125" GridPane.valignment="CENTER" />
        </GridPane>
    </right>
 </BorderPane>

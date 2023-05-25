@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
 public class CategoriasController implements Initializable {
     public Text nombreUsuario;
     public JFXButton btnHome;
-    public JFXButton btnCategorias;
     public JFXButton btnAdd;
     public TableView<Categorias> tablacategorias;
     public JFXButton btnDelete;
@@ -36,10 +35,6 @@ public class CategoriasController implements Initializable {
         Tooltip tooltipHome = new Tooltip("Volver al menu principal");
         tooltipHome.setShowDuration(Duration.millis(500));
         Tooltip.install(btnHome, tooltipHome);
-
-        Tooltip tooltipCat = new Tooltip("Estas viendo el listado de categorias");
-        tooltipCat.setShowDuration(Duration.millis(500));
-        Tooltip.install(btnCategorias, tooltipCat);
 
         categoriasDAO = new CategoriasDAO();
 
