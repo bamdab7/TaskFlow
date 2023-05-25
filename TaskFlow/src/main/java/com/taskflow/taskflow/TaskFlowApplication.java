@@ -4,15 +4,17 @@ import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Objects;
 
 public class TaskFlowApplication extends Application {
@@ -55,7 +57,6 @@ public class TaskFlowApplication extends Application {
             controladorCategorias = fxmlLoaderCategorias.getController();
             sceneCategorias = new Scene(rootCategorias, 646,394);
 
-
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
            // Parent rootLogin = fxmlLoaderLogin.load(); //Do not use this if this is the first scene lauched
             controladorRegister = fxmlLoaderLogin.getController();
@@ -64,15 +65,16 @@ public class TaskFlowApplication extends Application {
         //Adding icon to application
         stage.getIcons().add(new Image(Objects.requireNonNull(TaskFlowApplication.class.getResourceAsStream("/logo.png"))));
 
+       // stage.initStyle(StageStyle.UNIFIED); not supported because I don't have MACOS :)
+
         //Setting the tittle
         stage.setTitle("Task Flow!");
-
+         //No resize
+        stage.setResizable(false);
         //Launching scene
             // stage.setScene(sceneHome);
         stage.setScene(sceneLogin);
 
-        //No resize
-        stage.setResizable(false);
         stage.show();
     }
 

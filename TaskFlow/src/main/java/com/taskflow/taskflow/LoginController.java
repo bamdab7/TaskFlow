@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -34,9 +35,24 @@ public class LoginController implements Initializable {
         usuariosDAO = new UsuariosDAO();
         usuariosDAO.getConnection();
         verification.setText(" ");
+
+        //Creating Key Events for forms
+        btnLogin.setOnAction(event -> btnLogin()); // Asociate the action to the button
+
+        txtUser.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnLogin();
+            }
+        });
+        txtPassword.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnLogin();
+            }
+        });
+
     }
 
-    public void btnLogin(ActionEvent actionEvent){
+    public void btnLogin(){
         //Check credentials
         String username = txtUser.getText();
         String password = txtPassword.getText();
@@ -45,7 +61,7 @@ public class LoginController implements Initializable {
             user = usuariosDAO.getUser(username);
             //Scene Home
             Scene sceneHome = TaskFlowApplication.sceneHome;
-            Stage stageHome = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            Stage stageHome = (Stage) btnLogin.getScene().getWindow();
 
             stageHome.setScene(sceneHome);
             stageHome.show();

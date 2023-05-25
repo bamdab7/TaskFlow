@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -37,9 +38,34 @@ public class RegisterController implements Initializable {
         //Calling UsuariosDAO in order to add users
         usuariosDAO = new UsuariosDAO();
         usuariosDAO.getConnection();
+
+        //Making Key Events on forms
+        btnSignup.setOnAction(event -> btnSignup()); // Asociate the acction to the button
+
+        // Key Events
+        txtUser.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnSignup();
+            }
+        });
+        txtName.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnSignup();
+            }
+        });
+        txtEmail.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnSignup();
+            }
+        });
+        txtPassword.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                btnSignup();
+            }
+        });
     }
 
-    public void btnSignup(ActionEvent actionEvent) {
+    public void btnSignup() {
         //Collect all data from textfield and insert into database and then redirect to Login
         Usuarios user = new Usuarios();
         //In order to validate the email, get text from form
@@ -63,7 +89,7 @@ public class RegisterController implements Initializable {
 
             //Scene Login
              Scene sceneLogin = TaskFlowApplication.sceneLogin;
-             Stage stageLogin = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+             Stage stageLogin = (Stage) btnSignup.getScene().getWindow();;
 
             stageLogin.setScene(sceneLogin);
             stageLogin.show();
