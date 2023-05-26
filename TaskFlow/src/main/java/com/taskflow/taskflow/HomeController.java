@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.pojo.Tareas;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -21,6 +23,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.control.TableRow;
 
 import java.io.IOException;
 import java.net.URL;
@@ -86,6 +89,30 @@ public class HomeController implements Initializable {
                 abrirDialogoEditar(tareaSeleccionada);
             }
         });
+
+
+             // Configurar Tooltip en las filas del TableView
+        tabladb.setRowFactory(tv -> {
+            TableRow<Tareas> row = new TableRow<>();
+
+            Tooltip tooltip = new Tooltip();
+            StringProperty descripcionProperty = new SimpleStringProperty();
+
+            tooltip.textProperty().bind(descripcionProperty);
+
+            row.setOnMouseEntered(event -> {
+                if (!row.isEmpty()) {
+                    descripcionProperty.set(row.getItem().getDescripcion());
+                    tooltip.show(row, event.getScreenX(), event.getScreenY() + 10);
+                }
+            });
+
+            row.setOnMouseExited(event -> {
+                tooltip.hide();
+            });
+            return row;
+        });
+
     }
 
     private void abrirDialogoEditar(Tareas tareaSeleccionada) {
