@@ -40,6 +40,22 @@ public class CategoriasDAO {
              System.out.printf("Error al crear la base de datos CATEGORIAS.\n Error: " +e.getMessage());;
         }
     }
+    public void insertarCategoriaDefecto(){
+        try {
+            conn = getConnection();
+            Statement st = conn.createStatement();
+            String sql ="INSERT INTO categorias (nombre)" +
+                    " SELECT 'Sin categoria' " +
+                    " WHERE NOT EXISTS (" +
+                    "    SELECT 1" +
+                    "    FROM categorias" +
+                    "    WHERE nombre = 'Sin Categoria'" +
+                    ");";
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+             System.out.printf("Error al crear la categoria por defecto.\n Error: " +e.getMessage());;
+        }
+    }
 
 
     //Only get the name and put it in a simple List
@@ -65,7 +81,7 @@ public class CategoriasDAO {
         ObservableList<Categorias> categoriasList = FXCollections.observableArrayList();
         try {
             conn = getConnection();
-            String query = "SELECT * FROM categorias";
+            String query = "SELECT * FROM categorias WHERE nombre NOT LIKE 'Sin Categoria'";
             Statement st;
             ResultSet rs;
                 st = conn.createStatement();

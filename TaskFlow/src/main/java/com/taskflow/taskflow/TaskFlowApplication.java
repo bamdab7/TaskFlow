@@ -39,6 +39,7 @@ public class TaskFlowApplication extends Application {
 
         users.crearDBUsuarios();
         categorias.crearDBCategorias();
+        categorias.insertarCategoriaDefecto();
         tareas.crearDBTareas();
 
         //Creating scenes

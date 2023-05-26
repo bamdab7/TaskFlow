@@ -71,21 +71,22 @@ public class CategoriasController implements Initializable {
 
         categoria.setId_categorias(id);
         categoria.setNombre(txtNombre.getText());
-
-        if(id == 0){
+        if(!txtNombre.getText().isEmpty()){
+            if(id == 0){
             //So then insert
             categoriasDAO.insertarCategoria(categoria);
             id = 0;
             //Update values
             mostrarCategorias();
             eliminarCampos();
-        }else {
-            //Update?
-             categoriasDAO.actualizarCategoria(categoria);
-             id = 0;
-             //Update values
-            mostrarCategorias();
-            eliminarCampos();
+            }else {
+                //Update?
+                 categoriasDAO.actualizarCategoria(categoria);
+                 id = 0;
+                 //Update values
+                mostrarCategorias();
+                eliminarCampos();
+            }
         }
     }
 
