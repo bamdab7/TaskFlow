@@ -16,14 +16,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javafx.scene.control.TableRow;
 
 import java.io.IOException;
 import java.net.URL;
@@ -90,8 +89,7 @@ public class HomeController implements Initializable {
             }
         });
 
-
-             // Configurar Tooltip en las filas del TableView
+        //Configure tooltip to see description
         tabladb.setRowFactory(tv -> {
             TableRow<Tareas> row = new TableRow<>();
 
@@ -142,11 +140,43 @@ public class HomeController implements Initializable {
     public void mostrarTareas() throws SQLException {
         listadoTareas = tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario());
         tabladb.setItems(listadoTareas);
+
+        TableColumn<Tareas, String> estadoColumn = (TableColumn<Tareas, String>) tabladb.getColumns().get(2);
+        estadoColumn.setCellFactory(column -> createEstadoCell());
     }
 
     public void mostrarTareasCondicion(ObservableList<Tareas> lista) throws SQLException {
         tabladb.setItems(lista);
     }
+
+    private TableCell<Tareas, String> createEstadoCell() {
+    return new TableCell<Tareas, String>() {
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+                setStyle("");
+            } else {
+                setText(item);
+                Tareas tarea = getTableView().getItems().get(getIndex());
+                if (tarea != null) {
+                    String estado = tarea.getEstado();
+                    if (estado.equals("Progreso")) {
+                        setStyle("-fx-text-fill: #b7950b;-fx-font-weight: bold");
+                    } else if (estado.equals("Terminado")) {
+                        setStyle("-fx-text-fill: #5bb830;-fx-font-weight: bold");
+                    } else if (estado.equals("Pendiente")) {
+                        setStyle("-fx-text-fill: #622E1D;-fx-font-weight: bold");
+                    } else {
+                        setStyle("");
+                    }
+                }
+            }
+        }
+    };
+}
+
 
 //    public void btnBuscar(ActionEvent actionEvent) {
 //        //Search by categoria or name maybe
