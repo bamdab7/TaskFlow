@@ -41,6 +41,22 @@ public class TareasDAO {
              System.out.printf("Error al crear la tabla TAREAS.\n Error: " + e.getMessage());
          }
     }
+    public void insertTareaporDefecto(){
+        try {
+            conn = getConnection();
+            Statement st = conn.createStatement();
+            String sql ="INSERT INTO tareas (titulo, descripcion, estado, usuario_id, categoria_id) " +
+                    " SELECT 'tarea nueva', 'tarea nueva de prueba', 'pendiente', 1, 1" +
+                    " WHERE NOT EXISTS (" +
+                    "    SELECT 1" +
+                    "    FROM tareas" +
+                    "    WHERE titulo = 'tarea nueva'" +
+                    ");";
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+             System.out.printf("Error al crear la tarea por defecto.\n Error: " +e.getMessage());;
+        }
+    }
 
     //Getting the task from the database
     public ObservableList<Tareas> obtenerListadoTareas(Integer user){

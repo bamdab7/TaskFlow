@@ -38,9 +38,11 @@ public class TaskFlowApplication extends Application {
     public void start(Stage stage) throws IOException, SQLException {
 
         users.crearDBUsuarios();
+            users.insertarUsuarioDefecto();
         categorias.crearDBCategorias();
-        categorias.insertarCategoriaDefecto();
+            categorias.insertarCategoriaDefecto();
         tareas.crearDBTareas();
+            tareas.insertTareaporDefecto();
 
         //Creating scenes
         FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));

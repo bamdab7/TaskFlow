@@ -37,6 +37,22 @@ public class UsuariosDAO {
          }
     }
 
+    public void insertarUsuarioDefecto(){
+        try {
+            conn = getConnection();
+            Statement st = conn.createStatement();
+            String sql ="INSERT INTO usuarios (id_usuarios, username, nombre, email, password)" +
+                    " SELECT 1, 'admin', 'usuario admin', 'admin@gmail.com', '0000'" +
+                    " WHERE NOT EXISTS (" +
+                    "    SELECT 1" +
+                    "    FROM usuarios" +
+                    "    WHERE id_usuarios = 1" +
+                    ");";
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+             System.out.printf("Error al crear usuario por defecto.\n Error: " +e.getMessage());;
+        }
+    }
     //Methods
 
     //Find user and password
