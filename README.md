@@ -9,19 +9,30 @@ Proyecto fin de ciclo de desarrollo aplicaciones multiplataforma
 
 ## Capturas de Pantalla
 ![Ventana de inicio](Documentacion%2FCapturas%20de%20pantalla%2Flogin.png)
-Se presenta se muestra la interfaz de inicio de sesión de la aplicación. Los usuarios pueden ingresar sus credenciales, como usuario y contraseña, para acceder a su cuenta.
+* Se presenta se muestra la interfaz de inicio de sesión de la aplicación. Los usuarios pueden ingresar sus credenciales, como usuario y contraseña, para acceder a su cuenta.
+---
 ![Ventana de registro](Documentacion%2FCapturas%20de%20pantalla%2Fregistro.png)
-Aquí se presenta la interfaz de registro, donde los nuevos usuarios pueden crear una cuenta en la aplicación.
+* Aquí se presenta la interfaz de registro, donde los nuevos usuarios pueden crear una cuenta en la aplicación.
+---
 ![Ventana de inicio](Documentacion%2FCapturas%20de%20pantalla%2Fhome.png)
-Ventana de inicio tras iniciar sesion (usuario por defecto). Se muestra la vista de lista de tareas, donde los usuarios pueden ver todas las tareas en un formato organizado.
+* Ventana de inicio tras iniciar sesion (usuario por defecto). Se muestra la vista de lista de tareas, donde los usuarios pueden ver todas las tareas en un formato organizado.
+---
 ![Actualizacion de tareas](Documentacion%2FCapturas%20de%20pantalla%2Fupdate.png)
-Aqui se muestra la ventana de actualizacion de una tarea en la que se puede modificar la categoria o el estado de esta.
+* Aqui se muestra la ventana de actualizacion de una tarea en la que se puede modificar la categoria o el estado de esta.
+---
 ![Creacion de tareas](Documentacion%2FCapturas%20de%20pantalla%2Fadd.png)
-Aquí se presenta la interfaz de creación de tareas, donde los usuarios pueden agregar nuevas tareas con detalles como título, descripción, categoria y estado.
+* Aquí se presenta la interfaz de creación de tareas, donde los usuarios pueden agregar nuevas tareas con detalles como título, descripción, categoria y estado.
+---
 
 ## Requisitos previos a la instalacion
 1. Tener instalado un gestor de base de datos (XAMMP o WAMP)
-2. Tener un IDE instalado actualizado (se empleará _openjdk20_) recomendable __IntelliJ IDEA__ ya que busca el JDK automaticamente
+2. Tener un IDE instalado actualizado (se empleará _openjdk20_) recomendable __IntelliJ IDEA__ ya que busca el JDK automaticamente.
+
+> ### Importante
+> Para que la aplicacion funcione correctamente es necesario tener una base de datos creada llamada "__gestion_tareas__", no hara falta crear ninguna tabla, ya que la aplicacion las crearas automaticamente.  
+> Por defecto se creara un __admin__ con credenciales:
+> * user: __admin__
+> * password: __0000__
 
 ## Instalación
 1. Clona este repositorio: `git clone https://github.com/bamdab7/TaskFlow.git`
@@ -61,16 +72,8 @@ Aquí se presenta la interfaz de creación de tareas, donde los usuarios pueden 
     │ │  ├── logo.png
     README.md
 
-
 ## Uso
 Aqui pondre el uso
-
-
-### Importante
-Para que la aplicacion funcione correctamente es necesario tener una base de datos creada llamada "gestion_tareas", no hara falta crear ninguna tabla, ya que la aplicacion las crearas automaticamente.  
-Por defecto se creara un __admin__ con credenciales:
-* user: __admin__
-* password: __0000__
 
 ## Contribución
 Si quieres contribuir a este proyecto, sigue los siguientes pasos:
@@ -81,10 +84,7 @@ Si quieres contribuir a este proyecto, sigue los siguientes pasos:
  5. Crea un pull request en GitHub.
 
 ## Autores
-Nerea Pena Carbajales (@bamdab7)
+Nerea Pena Carbajales [@bamdab7](https://github.com/bamdab7/)
 
 ## Licencia
 MIT License
-
-
-
