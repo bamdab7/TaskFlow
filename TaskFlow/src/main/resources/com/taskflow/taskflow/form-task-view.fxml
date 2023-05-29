@@ -76,8 +76,18 @@
            <rowConstraints>
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
-           <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar" prefHeight="27.0" prefWidth="103.0" style="-fx-background-color: #DC143C; -fx-background-radius: 10;" text="Cancelar" GridPane.halignment="CENTER" />
-           <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar" prefHeight="26.0" prefWidth="103.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" text="Aceptar" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+           <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar" stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
+                <styleClass>
+                   <String fx:value="actions" />
+                   <String fx:value="btnDelete" />
+                </styleClass>
+           </Button>
+           <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar" stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                <styleClass>
+                   <String fx:value="actions" />
+                   <String fx:value="btnAdd" />
+                </styleClass>
+           </Button>
        </GridPane>
    </bottom>
 </BorderPane>

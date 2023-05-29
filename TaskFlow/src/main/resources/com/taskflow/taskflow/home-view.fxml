@@ -64,7 +64,7 @@
            <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
                <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome" stylesheets="@../../../css/buttons.css" text="Inicio">
                    <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <Image url="@../../../icons/home.png" />
                        </ImageView>
                    </graphic>
@@ -78,7 +78,7 @@
             </JFXButton>
                <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" stylesheets="@../../../css/buttons.css" text="Categorias">
                    <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <Image url="@../../../icons/categories.png" />
                        </ImageView>
                    </graphic>
@@ -97,7 +97,7 @@
                </Text>
                <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente" stylesheets="@../../../css/buttons.css" text="Pendiente">
                    <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <Image url="@../../../icons/clock.png" />
                        </ImageView>
                    </graphic>
@@ -111,7 +111,7 @@
                </JFXButton>
                <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso" stylesheets="@../../../css/buttons.css" text="Progreso">
                    <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <Image url="@../../../icons/waiting.png" />
                        </ImageView>
                    </graphic>
@@ -125,7 +125,7 @@
                </JFXButton>
                <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado" stylesheets="@../../../css/buttons.css" text="Terminado">
                    <graphic>
-                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                            <Image url="@../../../icons/done.png" />
                        </ImageView>
                    </graphic>
@@ -147,12 +147,16 @@
                <Insets bottom="5.0" top="5.0" />
             </padding>
            </VBox>
-         <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" styleClass="btnAdd" stylesheets="@../../../css/buttons.css" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" stylesheets="@../../../css/buttons.css" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             <graphic>
-                <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
                     <Image url="@../../../icons/add.png" />
                 </ImageView>
             </graphic>
+            <styleClass>
+               <String fx:value="btnAdd" />
+               <String fx:value="actions" />
+            </styleClass>
          </JFXButton>
          <BorderPane.margin>
             <Insets top="5.0" />

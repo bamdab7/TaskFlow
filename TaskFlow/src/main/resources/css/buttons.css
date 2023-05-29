@@ -4,18 +4,13 @@
     -fx-pref-width: 108.0;
     -fx-padding: 10.0 10.0 15.0 10.0;
     -fx-font-size: 12px;
+    -fx-alignment: center-left; /* Alineación del contenido */
+    -fx-graphic-text-gap: 5px; /* Espaciado entre texto e imagen */
 
 }
-/* trying styles */
-.principal::after{
-
-}
-
-.principal.btnHome{
-
-}
-.principal.btnCategorias{
-
+/* principal.btnhome // principal.btncategorias*/
+.icon{
+     -fx-padding: 0px 0px 0px 10px; /* Espaciado de la imagen */
 }
 
 /* apply styles for the buttons in the left (status) */
@@ -23,7 +18,6 @@
     -fx-pref-height: 25.0;
     -fx-pref-width: 133.0;
     -fx-padding: 10.0 10.0 10.0 10.0;
-}
 }
 .status.btnPendiente {
     -fx-text-fill: #622E1D;
@@ -33,4 +27,18 @@
 }
 .status.btnTerminado {
     -fx-text-fill: #5bb830;
+}
+
+/* add button*/
+.actions{
+    -fx-pref-height: 30.0;
+    -fx-pref-width: 79.0;
+    -fx-background-radius: 10;
+}
+.btnAdd{
+    -fx-background-color: #98FB98;
+}
+
+.btnDelete{
+    -fx-background-color: #DC143C;
 }
