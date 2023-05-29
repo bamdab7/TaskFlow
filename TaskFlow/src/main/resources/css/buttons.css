@@ -1,0 +1,36 @@
+/* styles for home and categories */
+.principal{
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 108.0;
+    -fx-padding: 10.0 10.0 15.0 10.0;
+    -fx-font-size: 12px;
+
+}
+/* trying styles */
+.principal::after{
+
+}
+
+.principal.btnHome{
+
+}
+.principal.btnCategorias{
+
+}
+
+/* apply styles for the buttons in the left (status) */
+.status {
+    -fx-pref-height: 25.0;
+    -fx-pref-width: 133.0;
+    -fx-padding: 10.0 10.0 10.0 10.0;
+}
+}
+.status.btnPendiente {
+    -fx-text-fill: #622E1D;
+}
+.status.btnProgreso {
+    -fx-text-fill: #b7950b;
+}
+.status.btnTerminado {
+    -fx-text-fill: #5bb830;
+}

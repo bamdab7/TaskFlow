@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.control.cell.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/home.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/buttons.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
    <top>
        <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
            <columnConstraints>
@@ -54,73 +62,84 @@
                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
            </rowConstraints>
            <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
-               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome" prefHeight="25.0" prefWidth="108.0" text="Inicio">
+               <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome" stylesheets="@../../../css/buttons.css" text="Inicio">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/home.png" />
                        </ImageView>
                    </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="15.0" left="10.0" top="10.0" />
-               </padding>
+                   <VBox.margin>
+                      <Insets />
+                   </VBox.margin>
+                   <styleClass>
+                      <String fx:value="principal" />
+                      <String fx:value="btnHome" />
+                   </styleClass>
             </JFXButton>
-               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" prefHeight="25.0" prefWidth="120.0" text="Categorias">
+               <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" stylesheets="@../../../css/buttons.css" text="Categorias">
                    <graphic>
                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                            <Image url="@../../../icons/categories.png" />
                        </ImageView>
                    </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="15.0" left="10.0" top="10.0" />
-               </padding>
+                   <VBox.margin>
+                      <Insets />
+                   </VBox.margin>
+                   <styleClass>
+                      <String fx:value="principal" />
+                      <String fx:value="btnCategorias" />
+                   </styleClass>
                </JFXButton>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold" text="Ver" wrappingWidth="77.708984375">
                <VBox.margin>
                   <Insets left="10.0" />
                </VBox.margin>
                </Text>
-               <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente" prefHeight="25.0" prefWidth="133.0" style="-fx-text-fill: #622E1D;" text="Pendiente">
-               <graphic>
-                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/clock.png" />
-                   </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </padding></JFXButton>
-               <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso" prefHeight="25.0" prefWidth="129.0" style="-fx-text-fill: #b7950b;" text="Progreso">
-               <graphic>
-                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/waiting.png" />
-                   </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </padding></JFXButton>
-               <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado" prefHeight="25.0" prefWidth="141.0" style="-fx-text-fill: #5bb830;" text="Terminado">
-               <graphic>
-                   <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                       <Image url="@../../../icons/done.png" />
-                   </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </padding></JFXButton>
+               <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente" stylesheets="@../../../css/buttons.css" text="Pendiente">
+                   <graphic>
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@../../../icons/clock.png" />
+                       </ImageView>
+                   </graphic>
+                   <VBox.margin>
+                      <Insets />
+                   </VBox.margin>
+                   <styleClass>
+                      <String fx:value="status" />
+                      <String fx:value="btnPendiente" />
+                   </styleClass>
+               </JFXButton>
+               <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso" stylesheets="@../../../css/buttons.css" text="Progreso">
+                   <graphic>
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@../../../icons/waiting.png" />
+                       </ImageView>
+                   </graphic>
+                   <VBox.margin>
+                      <Insets />
+                   </VBox.margin>
+                   <styleClass>
+                      <String fx:value="status" />
+                      <String fx:value="btnProgreso" />
+                   </styleClass>
+               </JFXButton>
+               <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado" stylesheets="@../../../css/buttons.css" text="Terminado">
+                   <graphic>
+                       <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@../../../icons/done.png" />
+                       </ImageView>
+                   </graphic>
+                   <VBox.margin>
+                      <Insets />
+                   </VBox.margin>
+                   <padding>
+                      <Insets bottom="10.0" left="10.0" top="10.0" />
+                   </padding>
+                   <styleClass>
+                      <String fx:value="status" />
+                      <String fx:value="btnTerminado" />
+                   </styleClass>
+               </JFXButton>
             <GridPane.margin>
                <Insets bottom="20.0" />
             </GridPane.margin>
@@ -128,7 +147,7 @@
                <Insets bottom="5.0" top="5.0" />
             </padding>
            </VBox>
-         <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+         <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" onAction="#btnAdd" prefHeight="30.0" prefWidth="79.0" style="-fx-background-color: #98FB98; -fx-background-radius: 10;" styleClass="btnAdd" stylesheets="@../../../css/buttons.css" text="Button" GridPane.halignment="CENTER" GridPane.rowIndex="1">
             <graphic>
                 <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="@../../../icons/add.png" />
