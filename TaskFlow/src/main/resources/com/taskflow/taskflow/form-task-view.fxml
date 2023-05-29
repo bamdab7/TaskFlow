@@ -14,80 +14,90 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="453.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.FormTaskController">
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
-   <top>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AÑADIR NUEVA TAREA" textAlignment="CENTER" wrappingWidth="176.765625" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
-         </BorderPane.margin>
-      </Text>
-   </top>
-   <center>
-       <GridPane alignment="BASELINE_CENTER" prefHeight="192.0" prefWidth="512.0" BorderPane.alignment="CENTER">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="240.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints maxHeight="96.0" minHeight="1.0" prefHeight="36.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES" />
-           </rowConstraints>
-           <BorderPane.margin>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-           </BorderPane.margin>
-           <ComboBox fx:id="cmbCategoria" prefWidth="150.0" promptText="Categoría" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-           </ComboBox>
-           <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0" promptText="En que consiste la tarea?" GridPane.rowIndex="1">
-              <GridPane.margin>
-                  <Insets top="10.0" />
-              </GridPane.margin>
-           </TextArea>
-           <TextField fx:id="txtNombre" promptText="Nombre de la nueva tarea!">
-            <GridPane.margin>
-               <Insets bottom="5.0" />
-            </GridPane.margin></TextField>
-           <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
-                 <items>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0"
+            prefWidth="453.0" style="-fx-background-color: #ADD8E6;" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.FormTaskController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <top>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AÑADIR NUEVA TAREA" textAlignment="CENTER"
+              wrappingWidth="176.765625" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="System Bold" size="16.0"/>
+            </font>
+            <BorderPane.margin>
+                <Insets bottom="10.0"/>
+            </BorderPane.margin>
+        </Text>
+    </top>
+    <center>
+        <GridPane alignment="BASELINE_CENTER" prefHeight="192.0" prefWidth="512.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="240.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="96.0" minHeight="1.0" prefHeight="36.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
+            </BorderPane.margin>
+            <ComboBox fx:id="cmbCategoria" prefWidth="150.0" promptText="Categoría" GridPane.columnIndex="1"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="1">
+            </ComboBox>
+            <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0" promptText="En que consiste la tarea?"
+                      GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets top="10.0"/>
+                </GridPane.margin>
+            </TextArea>
+            <TextField fx:id="txtNombre" promptText="Nombre de la nueva tarea!">
+                <GridPane.margin>
+                    <Insets bottom="5.0"/>
+                </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" GridPane.halignment="LEFT"
+                      GridPane.rowIndex="2" GridPane.valignment="TOP">
+                <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Pendiente" />
-                        <String fx:value="Terminado" />
-                        <String fx:value="Progreso" />
+                        <String fx:value="Pendiente"/>
+                        <String fx:value="Terminado"/>
+                        <String fx:value="Progreso"/>
                     </FXCollections>
                 </items>
-              <GridPane.margin>
-                  <Insets top="20.0" />
-              </GridPane.margin>
-           </ComboBox>
-       </GridPane>
-   </center>
-   <bottom>
-       <GridPane prefHeight="39.0" prefWidth="433.0" BorderPane.alignment="CENTER">
-           <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-           </columnConstraints>
-           <rowConstraints>
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-           </rowConstraints>
-           <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar" stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
+                <GridPane.margin>
+                    <Insets top="20.0"/>
+                </GridPane.margin>
+            </ComboBox>
+        </GridPane>
+    </center>
+    <bottom>
+        <GridPane prefHeight="39.0" prefWidth="433.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar"
+                    stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
                 <styleClass>
-                   <String fx:value="actions" />
-                   <String fx:value="btnDelete" />
+                    <String fx:value="actions"/>
+                    <String fx:value="btnDelete"/>
                 </styleClass>
-           </Button>
-           <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar" stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            </Button>
+            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar"
+                    stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="1"
+                    GridPane.halignment="CENTER">
                 <styleClass>
-                   <String fx:value="actions" />
-                   <String fx:value="btnAdd" />
+                    <String fx:value="actions"/>
+                    <String fx:value="btnAdd"/>
                 </styleClass>
-           </Button>
-       </GridPane>
-   </bottom>
+            </Button>
+        </GridPane>
+    </bottom>
 </BorderPane>

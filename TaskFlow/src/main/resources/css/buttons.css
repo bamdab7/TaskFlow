@@ -29,12 +29,22 @@
     -fx-text-fill: #5bb830;
 }
 
-/* add button*/
-.actions{
-    -fx-pref-height: 30.0;
-    -fx-pref-width: 79.0;
+/* add button */
+.actions {
+    -fx-pref-height: 35.0;
+    -fx-pref-width: 110.0;
     -fx-background-radius: 10;
+    -fx-padding: 5px;
 }
+
+.actions .icon {
+    -fx-alignment: center-right;
+}
+
+.actions .text {
+    -fx-alignment: center-left;
+}
+
 .btnAdd{
     -fx-background-color: #98FB98;
 }
