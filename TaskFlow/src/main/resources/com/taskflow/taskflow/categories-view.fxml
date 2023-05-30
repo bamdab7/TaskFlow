@@ -15,98 +15,119 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #B0E0E6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.CategoriasController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #B0E0E6;" xmlns="http://javafx.com/javafx/20.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.CategoriasController">
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        <Insets left="10.0"/>
     </padding>
     <left>
-        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="380.0" prefWidth="223.0" BorderPane.alignment="CENTER">
+        <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="380.0" prefWidth="223.0"
+                  BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="88.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="109.0" minHeight="10.0" prefHeight="71.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="163.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES"/>
             </rowConstraints>
 
-            <JFXButton fx:id="btnAdd" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnAdd" stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <JFXButton fx:id="btnAdd" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnAdd"
+                       stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="3" GridPane.valignment="CENTER">
                 <graphic>
-                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
-                        <Image url="@../../../icons/add.png" />
+                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
+                               styleClass="icon">
+                        <Image url="@../../../icons/add.png"/>
                     </ImageView>
                 </graphic>
                 <styleClass>
-                    <String fx:value="btnAdd" />
-                    <String fx:value="actions" />
+                    <String fx:value="btnAdd"/>
+                    <String fx:value="actions"/>
                 </styleClass>
                 <GridPane.margin>
-                    <Insets />
+                    <Insets/>
                 </GridPane.margin>
             </JFXButton>
 
-            <TextField fx:id="txtNombre" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="159.0" promptText="Nombre de la categoria" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <TextField fx:id="txtNombre" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="159.0"
+                       promptText="Nombre de la categoria" GridPane.halignment="CENTER" GridPane.rowIndex="2"
+                       GridPane.valignment="CENTER">
                 <GridPane.margin>
-                    <Insets left="5.0" right="5.0" />
+                    <Insets left="5.0" right="5.0"/>
                 </GridPane.margin>
             </TextField>
 
-            <JFXButton fx:id="btnDelete" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnDelete" stylesheets="@../../../css/buttons.css" text="Eliminar" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <JFXButton fx:id="btnDelete" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnDelete"
+                       stylesheets="@../../../css/buttons.css" text="Eliminar" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="4" GridPane.valignment="CENTER">
                 <graphic>
-                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
-                        <Image url="@../../../icons/delete.png" />
+                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
+                               styleClass="icon">
+                        <Image url="@../../../icons/delete.png"/>
                     </ImageView>
                 </graphic>
                 <styleClass>
-                    <String fx:value="btnDelete" />
-                    <String fx:value="actions" />
+                    <String fx:value="btnDelete"/>
+                    <String fx:value="actions"/>
                 </styleClass>
             </JFXButton>
 
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Aqui podras gestionar las categorias, podras eliminarlas, actualizar unas existentes o crear unas nuevas" textAlignment="CENTER" wrappingWidth="212.142578125" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="42.0" prefWidth="169.0" stylesheets="@../../../css/buttons.css" text="Inicio">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Aqui podras gestionar las categorias, podras eliminarlas, actualizar unas existentes o crear unas nuevas"
+                  textAlignment="CENTER" wrappingWidth="212.142578125" GridPane.halignment="LEFT" GridPane.rowIndex="1"
+                  GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS"/>
+            <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#bntHome" prefHeight="42.0" prefWidth="169.0"
+                       stylesheets="@../../../css/buttons.css" text="Inicio">
                 <graphic>
                     <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../icons/home.png" />
+                        <Image url="@../../../icons/home.png"/>
                     </ImageView>
                 </graphic>
                 <padding>
-                    <Insets bottom="15.0" left="10.0" top="10.0" />
+                    <Insets bottom="15.0" left="10.0" top="10.0"/>
                 </padding>
                 <styleClass>
-                    <String fx:value="principal" />
-                    <String fx:value="btnHome" />
+                    <String fx:value="principal"/>
+                    <String fx:value="btnHome"/>
                 </styleClass>
             </JFXButton>
         </GridPane>
     </left>
     <right>
-        <GridPane prefHeight="380.0" prefWidth="351.0" BorderPane.alignment="CENTER">
+        <GridPane prefHeight="406.0" prefWidth="351.0" styleClass="img" stylesheets="@../../../css/styles.css"
+                  BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="313.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="313.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES"/>
             </rowConstraints>
-            <TableView fx:id="tablacategorias" prefHeight="305.0" prefWidth="351.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;" stylesheets="@../../../css/table.css" GridPane.rowIndex="1">
+            <Text styleClass="headerText" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIAS"
+                  GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            <TableView fx:id="tablacategorias" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                       minWidth="-Infinity" prefHeight="264.0" prefWidth="291.0"
+                       style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;"
+                       stylesheets="@../../../css/table.css" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                       GridPane.valignment="CENTER">
                 <columns>
                     <TableColumn editable="false" minWidth="7.0" prefWidth="274.0" sortable="false">
                         <cellValueFactory>
-                            <PropertyValueFactory property="nombre" />
+                            <PropertyValueFactory property="nombre"/>
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
                 <opaqueInsets>
-                    <Insets />
+                    <Insets/>
                 </opaqueInsets>
                 <GridPane.margin>
-                    <Insets bottom="10.0" left="10.0" right="10.0" />
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                 </GridPane.margin>
             </TableView>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIAS" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
         </GridPane>
     </right>
 </BorderPane>
