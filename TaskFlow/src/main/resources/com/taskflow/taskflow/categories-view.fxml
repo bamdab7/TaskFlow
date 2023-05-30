@@ -36,6 +36,7 @@
             </rowConstraints>
 
             <JFXButton fx:id="btnAdd" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnAdd"
+                       onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased" prefWidth="125.0"
                        stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
                        GridPane.rowIndex="3" GridPane.valignment="CENTER">
                 <graphic>
@@ -62,6 +63,7 @@
             </TextField>
 
             <JFXButton fx:id="btnDelete" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnDelete"
+                       onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
                        stylesheets="@../../../css/buttons.css" text="Eliminar" GridPane.halignment="CENTER"
                        GridPane.rowIndex="4" GridPane.valignment="CENTER">
                 <graphic>
@@ -107,7 +109,7 @@
                 <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES"/>
                 <RowConstraints maxHeight="313.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES"/>
             </rowConstraints>
-            <Text styleClass="headerText" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIAS"
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="headerText" text="CATEGORIAS"
                   GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
             <TableView fx:id="tablacategorias" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                        minWidth="-Infinity" prefHeight="264.0" prefWidth="291.0"

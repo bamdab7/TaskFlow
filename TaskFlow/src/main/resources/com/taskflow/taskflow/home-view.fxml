@@ -18,7 +18,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/buttons.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.taskflow.taskflow.HomeController">
     <top>
         <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
@@ -166,7 +166,7 @@
                     <Insets bottom="5.0" top="5.0"/>
                 </padding>
             </VBox>
-            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="25.0" onAction="#btnAdd"
+            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
                        stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
                        GridPane.rowIndex="1">
                 <graphic>

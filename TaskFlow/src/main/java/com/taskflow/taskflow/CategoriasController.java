@@ -3,6 +3,7 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.pojo.Categorias;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -29,6 +31,7 @@ public class CategoriasController implements Initializable {
     private int id;
 
     CategoriasDAO categoriasDAO;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Creating the tooltips
@@ -39,8 +42,8 @@ public class CategoriasController implements Initializable {
         categoriasDAO = new CategoriasDAO();
 
         //In order to get the information
-        tablacategorias.setOnMouseClicked(event ->{
-            if(event.getClickCount() == 2){
+        tablacategorias.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
                 Categorias categoria = tablacategorias.getSelectionModel().getSelectedItem();
                 txtNombre.setText(categoria.getNombre());
                 id = categoria.getId_categorias();
@@ -59,9 +62,10 @@ public class CategoriasController implements Initializable {
         try {
             TaskFlowApplication.controladorHome.mostrarTareas();
         } catch (SQLException e) {
-            System.out.printf("Error al mostrar tareas. \n Error: " +e.getMessage());
+            System.out.printf("Error al mostrar tareas. \n Error: " + e.getMessage());
         }
-        TaskFlowApplication.controladorHome.busquedaDinamica();;
+        TaskFlowApplication.controladorHome.busquedaDinamica();
+        ;
     }
 
 
@@ -71,50 +75,61 @@ public class CategoriasController implements Initializable {
 
         categoria.setId_categorias(id);
         categoria.setNombre(txtNombre.getText());
-        if(!txtNombre.getText().isEmpty()){
-            if(id == 0){
-            //So then insert
-            categoriasDAO.insertarCategoria(categoria);
-            id = 0;
-            //Update values
-            mostrarCategorias();
-            eliminarCampos();
-            }else {
+        if (!txtNombre.getText().isEmpty()) {
+            if (id == 0) {
+                //So then insert
+                categoriasDAO.insertarCategoria(categoria);
+                id = 0;
+                //Update values
+                mostrarCategorias();
+                eliminarCampos();
+            } else {
                 //Update?
-                 categoriasDAO.actualizarCategoria(categoria);
-                 id = 0;
-                 //Update values
+                categoriasDAO.actualizarCategoria(categoria);
+                id = 0;
+                //Update values
                 mostrarCategorias();
                 eliminarCampos();
             }
         }
     }
 
-    public void mostrarCategorias(){
+    public void mostrarCategorias() {
         tablacategorias.setItems(categoriasDAO.obtenerListadoCategorias());
     }
 
-    public void eliminarCampos(){
-            txtNombre.clear();
+    public void eliminarCampos() {
+        txtNombre.clear();
     }
 
     public void btnDelete(ActionEvent actionEvent) {
         Categorias categorias = tablacategorias.getSelectionModel().getSelectedItem();
-        if(categorias == null){
+        if (categorias == null) {
             //U must have select something
-             mostrarAlerta("Error", "Debe tener seleccionado una categoria");
-            }else{
+            mostrarAlerta("Error", "Debe tener seleccionado una categoria");
+        } else {
             categoriasDAO.eliminarCategoria(categorias);
             mostrarCategorias();
         }
     }
 
     //Shows an alert when something is wrong
-    private void mostrarAlerta(String titulo,String mensaje) {
+    private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnDelete.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+        btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+
+    }
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnDelete.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+        btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+
     }
 }
