@@ -92,7 +92,7 @@
                     stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
                 <styleClass>
                     <String fx:value="actions"/>
-                    <String fx:value="btnDelete"/>
+                    <String fx:value="btnCancelar"/>
                 </styleClass>
             </Button>
             <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar"

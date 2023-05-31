@@ -36,7 +36,7 @@
     -fx-background-radius: 10;
     -fx-border-width: 3px;
     -fx-border-radius: 5px;
-    -fx-padding: 5px 15px;
+    -fx-padding: 6px 15px;
 }
 
 .actions .icon {
@@ -50,31 +50,45 @@
 /* adding styles for add and delete btns, hover and colors*/
 .btnAdd{
     -fx-background-color: white;
-    -fx-text-fill: #006400;
-    -fx-border-color: linear-gradient(to bottom, #9DFB9D, #7FD97F);
+    -fx-text-fill:#006400;
+    -fx-border-color: #90EE90;
 }
 .btnAdd .icon {
     -fx-fill: #006400;
 }
 .btnAdd:pressed {
-    -fx-background-color: linear-gradient(to bottom, white, #e0e0e0);
+    -fx-background-color: linear-gradient(to bottom, #90EE90, #e0e0e0);
 }
-
 .btnAdd:hover {
-    -fx-background-color: linear-gradient(to bottom, white, #e0e0e0);
+    -fx-background-color: linear-gradient(to bottom, #90EE90, #e0e0e0);
 }
 
 .btnDelete{
     -fx-background-color: white;
     -fx-text-fill: #8B0000;
-    -fx-border-color: linear-gradient(to bottom, #FF6666, #FF3333);
+    -fx-border-color: #FFC0CB;
 }
 .btnDelete .icon {
     -fx-fill: #8B0000;
 }
 .btnDelete:hover {
-    -fx-background-color: linear-gradient(to bottom, white, #e0e0e0);
+    -fx-background-color: linear-gradient(to bottom, #FFC0CB, #e0e0e0);
 }
 .btnDelete:pressed {
-    -fx-background-color: linear-gradient(to bottom, white, #e0e0e0);
+    -fx-background-color: linear-gradient(to bottom, #FFC0CB, #e0e0e0);
 }
+
+/* btn cancelar without styles*/
+.btnCancelar {
+    -fx-background-color: white;
+    -fx-border-color:#D3D3D3;
+    -fx-text-fill: gray;
+}
+.btnCancelar:hover {
+    -fx-background-color: linear-gradient(to bottom, #D3D3D3, #e0e0e0);
+}
+
+.btnCancelar:pressed {
+    -fx-background-color: linear-gradient(to bottom, #D3D3D3, #e0e0e0);
+}
+
