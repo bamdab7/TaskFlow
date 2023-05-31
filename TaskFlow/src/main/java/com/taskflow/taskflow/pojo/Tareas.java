@@ -29,6 +29,16 @@ public class Tareas {
         this.nombre_categoria = nombre_categoria;
     }
 
+    public Tareas(Integer id_tareas, String titulo, String descripcion, String estado, int id_usuarios, int id_categoria, String nombre_categoria) {
+        this.id_tareas = id_tareas;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.id_usuarios = id_usuarios;
+        this.id_categoria = id_categoria;
+        this.nombre_categoria = nombre_categoria;
+    }
+
     public Integer getId_tareas() {
         return id_tareas;
     }

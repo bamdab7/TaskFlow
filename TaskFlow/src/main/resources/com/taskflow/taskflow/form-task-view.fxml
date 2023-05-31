@@ -51,9 +51,9 @@
                     <Insets bottom="5.0"/>
                 </GridPane.margin>
             </ComboBox>
-            <TextArea fx:id="txtDescripcion" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity"
-                      prefHeight="72.0" prefWidth="208.0" promptText="En que consiste la tarea?"
-                      GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+            <TextArea fx:id="txtDescripcion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="72.0"
+                      prefWidth="208.0" promptText="En que consiste la tarea?" GridPane.halignment="CENTER"
+                      GridPane.rowIndex="1" GridPane.valignment="TOP">
                 <GridPane.margin>
                     <Insets top="10.0"/>
                 </GridPane.margin>
@@ -61,7 +61,7 @@
             <TextField fx:id="txtNombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="209.0"
                        promptText="Nombre de la nueva tarea!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                 <GridPane.margin>
-                    <Insets/>
+                    <Insets bottom="5.0"/>
                 </GridPane.margin>
             </TextField>
             <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" GridPane.columnIndex="1"

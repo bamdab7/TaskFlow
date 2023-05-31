@@ -24,8 +24,8 @@
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACTUALIZAR LA TAREA"
-              textAlignment="CENTER" wrappingWidth="213.765625" BorderPane.alignment="CENTER">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACTUALIZAR LA TAREA" textAlignment="CENTER"
+              wrappingWidth="213.765625" BorderPane.alignment="CENTER">
             <font>
                 <Font name="System Bold" size="16.0"/>
             </font>
@@ -38,28 +38,30 @@
         <GridPane alignment="BASELINE_CENTER" prefHeight="192.0" prefWidth="512.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0"/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="96.0" minHeight="1.0" prefHeight="36.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="145.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="183.0" minHeight="10.0" prefHeight="131.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <BorderPane.margin>
                 <Insets bottom="5.0" left="5.0" right="5.0" top="10.0"/>
             </BorderPane.margin>
-            <TextArea fx:id="txtDescripcion" prefHeight="200.0" prefWidth="200.0"
-                      promptText="Descripcion de la tarea seleccionada" GridPane.rowIndex="1">
+            <TextArea fx:id="txtDescripcion" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="72.0"
+                      prefWidth="208.0" promptText="Descripcion de la tarea seleccionada" GridPane.halignment="CENTER"
+                      GridPane.rowIndex="1" GridPane.valignment="TOP">
                 <GridPane.margin>
                     <Insets top="10.0"/>
                 </GridPane.margin>
             </TextArea>
-            <TextField fx:id="txtNombre" promptText="Nombre de la tarea!">
+            <TextField fx:id="txtNombre" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="209.0"
+                       promptText="Nombre de la tarea!" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                 <GridPane.margin>
                     <Insets bottom="5.0"/>
                 </GridPane.margin>
             </TextField>
-            <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" GridPane.halignment="LEFT"
-                      GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <ComboBox fx:id="cmbEstado" prefWidth="150.0" promptText="Estado" GridPane.columnIndex="1"
+                      GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
                         <String fx:value="Pendiente"/>
@@ -68,7 +70,13 @@
                     </FXCollections>
                 </items>
                 <GridPane.margin>
-                    <Insets top="20.0"/>
+                    <Insets top="5.0"/>
+                </GridPane.margin>
+            </ComboBox>
+            <ComboBox fx:id="cmbCategoria" prefWidth="150.0" promptText="Categoría" GridPane.columnIndex="1"
+                      GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                <GridPane.margin>
+                    <Insets bottom="5.0"/>
                 </GridPane.margin>
             </ComboBox>
         </GridPane>

@@ -1,5 +1,6 @@
 package com.taskflow.taskflow;
 
+import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.pojo.Tareas;
 import javafx.css.PseudoClass;
@@ -23,6 +24,7 @@ public class EditTaskController implements Initializable {
     public Button btnEliminar;
     public Button btnCancelar;
     public Button btnAceptar;
+    public ComboBox cmbCategoria;
     private Stage dialogStage;
     private boolean okClicked = false;
     private Tareas tarea1;
@@ -34,6 +36,7 @@ public class EditTaskController implements Initializable {
         tarea.getId_tareas();
         txtNombre.setText(tarea.getTitulo());
         txtDescripcion.setText(tarea.getDescripcion());
+        cmbCategoria.setValue(tarea.getNombre_categoria());
         cmbEstado.setValue(tarea.getEstado());
         System.out.println(tarea1);
     }
@@ -65,6 +68,12 @@ public class EditTaskController implements Initializable {
         tarea1.setTitulo(txtNombre.getText());
         tarea1.setDescripcion(txtDescripcion.getText());
         tarea1.setEstado(cmbEstado.getSelectionModel().getSelectedItem().toString());
+
+        String categoria = cmbCategoria.getSelectionModel().getSelectedItem().toString();
+        System.out.println(categoria);
+        int id_categoria = CategoriasDAO.getIdCategoria(categoria);
+        tarea1.setId_categoria(id_categoria);
+
         //Update
         tareasDAO.editarTareas(tarea1);
         System.out.println(tarea1);

@@ -75,7 +75,7 @@ public class TareasDAO {
             Tareas tarea;
             //Getting task
             while ((rs.next())){
-                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getString("nombre_categoria"));
+                tarea = new Tareas(rs.getInt("id_tareas"),rs.getString("titulo"),rs.getString("descripcion"), rs.getString("estado"),rs.getInt("usuario_id"),rs.getInt("categoria_id"),rs.getString("nombre_categoria"));
                 tareasList.add(tarea);
             }
         }catch (Exception e){
@@ -148,6 +148,7 @@ public class TareasDAO {
                     "SET estado = '" + tareas.getEstado()
                     + "' , titulo = '" + tareas.getTitulo()
                     + "' , descripcion = '" + tareas.getDescripcion()
+                    + "' , categoria_id = '" + tareas.getId_categoria()
                     + "' WHERE id_tareas = " + tareas.getId_tareas();
             Statement st;
             st = conn.createStatement();

@@ -86,6 +86,7 @@ public class HomeController implements Initializable {
                 Tareas tareaSeleccionada = (Tareas) tabladb.getSelectionModel().getSelectedItem();
                 //Opens the dialogo in order to edit the selected task
                 abrirDialogoEditar(tareaSeleccionada);
+                System.out.println(tareaSeleccionada);
             }
         });
 
@@ -129,6 +130,14 @@ public class HomeController implements Initializable {
             dialogo.setTitle("Editar Tarea");
             dialogo.setScene(new Scene(root));
 
+            //Setting the categories in the combobox
+            if (CategoriasDAO.getAllCategories().isEmpty()) {
+                editController.cmbCategoria.setDisable(true);
+                editController.cmbCategoria.setPromptText("No hay categorias");
+            } else {
+                // System.out.println(CategoriasDAO.getAllCategories());
+                editController.cmbCategoria.setItems(CategoriasDAO.getAllCategories());
+            }
             // Shows the dialog and waits to close
             dialogo.showAndWait();
         } catch (Exception e) {
@@ -140,6 +149,7 @@ public class HomeController implements Initializable {
     public void mostrarTareas() throws SQLException {
         listadoTareas = tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario());
         tabladb.setItems(listadoTareas);
+        System.out.println(listadoTareas);
 
         TableColumn<Tareas, String> estadoColumn = (TableColumn<Tareas, String>) tabladb.getColumns().get(2);
         estadoColumn.setCellFactory(column -> createEstadoCell());
