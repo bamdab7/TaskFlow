@@ -18,6 +18,7 @@
 <?import javafx.scene.text.Font?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #B0E0E6;" xmlns="http://javafx.com/javafx/20.0.1"
+            stylesheets="@../../../css/styles.css"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.CategoriasController">
     <padding>
         <Insets left="10.0"/>

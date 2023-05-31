@@ -8,10 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -19,6 +16,8 @@ import javafx.util.Duration;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CategoriasController implements Initializable {
@@ -83,6 +82,7 @@ public class CategoriasController implements Initializable {
                 //Update values
                 mostrarCategorias();
                 eliminarCampos();
+                mostrarAlertaInfo("Informacion", "Categoria insertada correctamente");
             } else {
                 //Update?
                 categoriasDAO.actualizarCategoria(categoria);
@@ -90,6 +90,7 @@ public class CategoriasController implements Initializable {
                 //Update values
                 mostrarCategorias();
                 eliminarCampos();
+                mostrarAlertaInfo("Informacion", "Categoria actualizada correctamente");
             }
         }
     }
@@ -106,19 +107,44 @@ public class CategoriasController implements Initializable {
         Categorias categorias = tablacategorias.getSelectionModel().getSelectedItem();
         if (categorias == null) {
             //U must have select something
-            mostrarAlerta("Error", "Debe tener seleccionado una categoria");
+            mostrarAlertaError("Error", "Debe tener seleccionado una categoria");
         } else {
-            categoriasDAO.eliminarCategoria(categorias);
-            mostrarCategorias();
+            //Confirm
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmación");
+            alert.setHeaderText(null);
+            alert.setContentText("Estás seguro de que deseas eliminar esta categoría?");
+
+            //Getting the response
+            Optional<ButtonType> result = alert.showAndWait();
+
+            // Verify user's response
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                categoriasDAO.eliminarCategoria(categorias);
+                mostrarCategorias();
+            } else {
+                // Cancell
+                System.out.println("Acción cancelada");
+            }
         }
     }
 
     //Shows an alert when something is wrong
-    private void mostrarAlerta(String titulo, String mensaje) {
+    private void mostrarAlertaError(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
+      //  alert.getDialogPane().getStyleClass().add("my-alert");
+        alert.showAndWait();
+    }
+
+    private void mostrarAlertaInfo(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+     //   alert.getDialogPane().getStyleClass().add("my-alert");
         alert.showAndWait();
     }
 
@@ -127,6 +153,7 @@ public class CategoriasController implements Initializable {
         btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
 
     }
+
     public void onButtonMouseReleased(MouseEvent mouseEvent) {
         btnDelete.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
         btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
