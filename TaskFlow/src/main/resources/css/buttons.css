@@ -92,3 +92,38 @@
     -fx-background-color: linear-gradient(to bottom, #D3D3D3, #e0e0e0);
 }
 
+/* login and register */
+.btnLogin{
+    -fx-background-radius: 10;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+    -fx-pref-height:31.0;
+    -fx-pref-width:154.0;
+    -fx-background-color: #B0E2FF;
+    -fx-border-color:#87CEFA;
+    -fx-text-fill: #000000;
+}
+
+.btnLogin:hover{
+    -fx-background-color: linear-gradient(to bottom,#B0E2FF,#87CEFA);
+}
+.btnLogin:pressed{
+        -fx-background-color: linear-gradient(to bottom,#B0E2FF,#87CEFA);
+}
+
+.btnSignUp{
+    -fx-background-radius: 15;
+    -fx-border-width: 3px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #68C5E5;
+    -fx-pref-height:31.0;
+    -fx-pref-width:154.0;
+    -fx-border-color:#87CEFA;
+    -fx-text-fill: #000000;
+}
+.btnSignUp:hover{
+    -fx-background-color: linear-gradient(to bottom,#68C5E5,#87CEFA);
+}
+.btnSignUp:pressed{
+    -fx-background-color: linear-gradient(to bottom,#68C5E5,#87CEFA);
+}

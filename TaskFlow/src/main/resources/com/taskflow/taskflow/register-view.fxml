@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="400.0" prefWidth="656.0" style="-fx-background-color: #B0E0E6;"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.taskflow.taskflow.RegisterController">
     <left>
         <GridPane prefHeight="410.0" prefWidth="235.0" BorderPane.alignment="CENTER">
@@ -36,9 +36,11 @@
                     <Font size="36.0"/>
                 </font>
             </Text>
-            <JFXButton fx:id="btnSignup" onAction="#btnSignup" prefHeight="31.0" prefWidth="154.0"
-                       style="-fx-background-color: #68C5E5; -fx-background-radius: 15;" text="SIGN UP"
-                       GridPane.halignment="CENTER" GridPane.rowIndex="5"/>
+            <JFXButton fx:id="btnSignup" onAction="#btnSignup"
+                       styleClass="btnSignUp" onMousePressed="#onButtonMousePressed"
+                       onMouseReleased="#onButtonMouseReleased"
+                       stylesheets="@../../../css/buttons.css" text="SIGN UP" GridPane.halignment="CENTER"
+                       GridPane.rowIndex="5"/>
             <TextField fx:id="txtUser" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="170.0"
                        promptText="User" GridPane.halignment="CENTER" GridPane.rowIndex="3"/>
             <PasswordField fx:id="txtPassword" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0"

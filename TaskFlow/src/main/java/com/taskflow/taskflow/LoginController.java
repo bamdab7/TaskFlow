@@ -3,6 +3,7 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Usuarios;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -52,11 +54,11 @@ public class LoginController implements Initializable {
 
     }
 
-    public void btnLogin(){
+    public void btnLogin() {
         //Check credentials
         String username = txtUser.getText();
         String password = txtPassword.getText();
-        if(usuariosDAO.comprobarUsuario(username,password)){
+        if (usuariosDAO.comprobarUsuario(username, password)) {
             System.out.println("Usuario encontrado\n");
             user = usuariosDAO.getUser(username);
             //Scene Home
@@ -68,15 +70,15 @@ public class LoginController implements Initializable {
 
             //Change the name of the user in all the scenes i want :)
             TaskFlowApplication.controladorHome.nombreUsuario.setText("Hola " + UsuariosDAO.getUser(user.getUsername()).getNombre());
-          //  TaskFlowApplication.controladorCategorias.nombreUsuario.setText("Hola " + UsuariosDAO.getUser(user.getUsername()).getNombre());
+            //  TaskFlowApplication.controladorCategorias.nombreUsuario.setText("Hola " + UsuariosDAO.getUser(user.getUsername()).getNombre());
 
             try {
                 TaskFlowApplication.controladorHome.mostrarTareas();
             } catch (SQLException e) {
-                System.out.printf("Error al mostrar las tareas. \n Error: " +e.getMessage());
+                System.out.printf("Error al mostrar las tareas. \n Error: " + e.getMessage());
             }
             TaskFlowApplication.controladorHome.busquedaDinamica();
-        }else{
+        } else {
             eliminarCampos();
             verification.setText("Usuario no encontrado");
             verification.setStyle("-fx-font-size: 16px;");
@@ -96,8 +98,16 @@ public class LoginController implements Initializable {
     }
 
     //Set all fields null
-    public void eliminarCampos(){
+    public void eliminarCampos() {
         txtUser.clear();
         txtPassword.clear();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnLogin.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+    }
+
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnLogin.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
     }
 }

@@ -3,6 +3,7 @@ package com.taskflow.taskflow;
 import com.jfoenix.controls.JFXButton;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Usuarios;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -120,5 +122,13 @@ public void linkRegister(ActionEvent actionEvent) {
         txtEmail.clear();
         txtPassword.clear();
         txtUser.clear();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnSignup.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+    }
+
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnSignup.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
     }
 }

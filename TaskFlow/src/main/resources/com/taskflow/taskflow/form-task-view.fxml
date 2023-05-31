@@ -89,7 +89,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar"
-                    stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
+                    stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER"
+                    onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased">
                 <styleClass>
                     <String fx:value="actions"/>
                     <String fx:value="btnCancelar"/>
@@ -97,7 +98,8 @@
             </Button>
             <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar"
                     stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER">
+                    GridPane.halignment="CENTER" onMousePressed="#onButtonMousePressed"
+                    onMouseReleased="#onButtonMouseReleased">
                 <styleClass>
                     <String fx:value="actions"/>
                     <String fx:value="btnAdd"/>

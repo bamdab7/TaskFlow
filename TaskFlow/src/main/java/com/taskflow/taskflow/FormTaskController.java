@@ -5,9 +5,11 @@ import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Tareas;
 import com.taskflow.taskflow.pojo.Usuarios;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -29,7 +31,7 @@ public class FormTaskController implements Initializable {
     private int id;
 
     public void btnCancelar(ActionEvent actionEvent) {
-         dialogStage.close();
+        dialogStage.close();
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
@@ -38,10 +40,10 @@ public class FormTaskController implements Initializable {
         Tareas tarea = new Tareas();
 
         // Validate all completed
-        if (txtNombre.getText().isEmpty()||txtDescripcion.getText().isEmpty()||cmbEstado.getSelectionModel().isEmpty()||cmbCategoria.getSelectionModel().isEmpty()){
+        if (txtNombre.getText().isEmpty() || txtDescripcion.getText().isEmpty() || cmbEstado.getSelectionModel().isEmpty() || cmbCategoria.getSelectionModel().isEmpty()) {
             mostrarAlerta("Error", "Debe completar la info sobre la tarea");
-        }else {
-                // Action when u click on Acept
+        } else {
+            // Action when u click on Acept
             okClicked = true;
             dialogStage.close();
             //GETTING THE INFO
@@ -49,8 +51,8 @@ public class FormTaskController implements Initializable {
             tarea.setTitulo(txtNombre.getText());
             tarea.setDescripcion(txtDescripcion.getText());
 
-            String categoria =  cmbCategoria.getSelectionModel().getSelectedItem().toString();
-            int id_categoria=CategoriasDAO.getIdCategoria(categoria);
+            String categoria = cmbCategoria.getSelectionModel().getSelectedItem().toString();
+            int id_categoria = CategoriasDAO.getIdCategoria(categoria);
             tarea.setId_categoria(id_categoria);
 
             tarea.setEstado(cmbEstado.getSelectionModel().getSelectedItem().toString());
@@ -59,12 +61,12 @@ public class FormTaskController implements Initializable {
 
             //INSERT
             tareasDAO.insertarTareas(tarea);
-            id= 0;
+            id = 0;
             System.out.println(tarea);
             eliminarCampos();
             //Updating the window
             try {
-                 TaskFlowApplication.controladorHome.mostrarTareas();
+                TaskFlowApplication.controladorHome.mostrarTareas();
             } catch (SQLException e) {
                 System.out.printf("Error al mostrar las tareas.\n Error: " + e.getMessage());
             }
@@ -79,14 +81,15 @@ public class FormTaskController implements Initializable {
         return okClicked;
     }
 
-    private void mostrarAlerta(String titulo,String mensaje) {
+    private void mostrarAlerta(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
         alert.showAndWait();
     }
-    public void eliminarCampos(){
+
+    public void eliminarCampos() {
         txtNombre.clear();
         txtDescripcion.clear();
         cmbCategoria.setValue(null);
@@ -96,5 +99,17 @@ public class FormTaskController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tareasDAO = new TareasDAO();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+        btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+
+    }
+
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+        btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+
     }
 }
