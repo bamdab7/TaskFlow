@@ -166,7 +166,8 @@
                     <Insets bottom="5.0" top="5.0"/>
                 </padding>
             </VBox>
-            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
+            <JFXButton fx:id="btnAdd" onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
+                       alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
                        stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
                        GridPane.rowIndex="1">
                 <graphic>

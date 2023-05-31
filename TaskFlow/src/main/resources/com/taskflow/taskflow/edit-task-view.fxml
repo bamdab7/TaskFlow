@@ -24,8 +24,8 @@
         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
     </padding>
     <top>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACTUALIZAR LA TAREA" textAlignment="CENTER"
-              wrappingWidth="213.765625" BorderPane.alignment="CENTER">
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ACTUALIZAR LA TAREA"
+              textAlignment="CENTER" wrappingWidth="213.765625" BorderPane.alignment="CENTER">
             <font>
                 <Font name="System Bold" size="16.0"/>
             </font>
@@ -38,7 +38,6 @@
         <GridPane alignment="BASELINE_CENTER" prefHeight="192.0" prefWidth="512.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="253.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="241.0" minWidth="10.0" prefWidth="240.0"/>
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints maxHeight="96.0" minHeight="1.0" prefHeight="36.0" vgrow="SOMETIMES"/>
@@ -72,9 +71,40 @@
                     <Insets top="20.0"/>
                 </GridPane.margin>
             </ComboBox>
+        </GridPane>
+    </center>
+    <bottom>
+        <GridPane prefHeight="30.0" prefWidth="433.0" BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar"
+                    onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
+                    stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
+                <styleClass>
+                    <String fx:value="actions"/>
+                    <String fx:value="btnDelete"/>
+                </styleClass>
+            </Button>
+            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar"
+                    onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
+                    stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="2"
+                    GridPane.halignment="CENTER">
+                <styleClass>
+                    <String fx:value="actions"/>
+                    <String fx:value="btnAdd"/>
+                </styleClass>
+            </Button>
             <Button fx:id="btnEliminar" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="25.0"
-                    onAction="#btnEliminar" prefHeight="37.0" prefWidth="51.0" stylesheets="@../../../css/buttons.css"
-                    text="Eliminar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                    onAction="#btnEliminar" onMousePressed="#onButtonMousePressed"
+                    onMouseReleased="#onButtonMouseReleased" prefHeight="37.0" prefWidth="51.0"
+                    stylesheets="@../../../css/buttons.css" text="Eliminar" GridPane.columnIndex="1"
+                    GridPane.halignment="CENTER">
                 <graphic>
                     <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
                                styleClass="icon">
@@ -84,32 +114,6 @@
                 <styleClass>
                     <String fx:value="actions"/>
                     <String fx:value="btnDelete"/>
-                </styleClass>
-            </Button>
-        </GridPane>
-    </center>
-    <bottom>
-        <GridPane prefHeight="30.0" prefWidth="433.0" BorderPane.alignment="CENTER">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            </rowConstraints>
-            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancelar"
-                    stylesheets="@../../../css/buttons.css" text="Cancelar" GridPane.halignment="CENTER">
-                <styleClass>
-                    <String fx:value="actions"/>
-                    <String fx:value="btnDelete"/>
-                </styleClass>
-            </Button>
-            <Button fx:id="btnAceptar" mnemonicParsing="false" onAction="#btnAceptar"
-                    stylesheets="@../../../css/buttons.css" text="Aceptar" GridPane.columnIndex="1"
-                    GridPane.halignment="CENTER">
-                <styleClass>
-                    <String fx:value="actions"/>
-                    <String fx:value="btnAdd"/>
                 </styleClass>
             </Button>
         </GridPane>

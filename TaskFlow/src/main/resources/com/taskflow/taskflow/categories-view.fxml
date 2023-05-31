@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.text.Font?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #B0E0E6;" xmlns="http://javafx.com/javafx/20.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.CategoriasController">
@@ -109,8 +110,15 @@
                 <RowConstraints maxHeight="181.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES"/>
                 <RowConstraints maxHeight="313.0" minHeight="10.0" prefHeight="313.0" vgrow="SOMETIMES"/>
             </rowConstraints>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="headerText" text="CATEGORIAS"
-                  GridPane.halignment="CENTER" GridPane.valignment="CENTER"/>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIAS" textAlignment="CENTER"
+                  GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                <font>
+                    <Font name="System Bold" size="16.0"/>
+                </font>
+                <BorderPane.margin>
+                    <Insets bottom="10.0"/>
+                </BorderPane.margin>
+            </Text>
             <TableView fx:id="tablacategorias" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                        minWidth="-Infinity" prefHeight="264.0" prefWidth="291.0"
                        style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;"

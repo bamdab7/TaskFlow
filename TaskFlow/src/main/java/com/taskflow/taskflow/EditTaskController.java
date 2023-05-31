@@ -2,12 +2,14 @@ package com.taskflow.taskflow;
 
 import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.pojo.Tareas;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -26,7 +28,7 @@ public class EditTaskController implements Initializable {
     private Tareas tarea1;
     private TareasDAO tareasDAO;
 
-    public void setTarea(Tareas tarea){
+    public void setTarea(Tareas tarea) {
         tarea1 = tarea;
         //Setting the fields
         tarea.getId_tareas();
@@ -35,9 +37,10 @@ public class EditTaskController implements Initializable {
         cmbEstado.setValue(tarea.getEstado());
         System.out.println(tarea1);
     }
+
     public void btnEliminar(ActionEvent actionEvent) {
         //Deletes the task, and comeback to home view
-        dialogStage= TaskFlowApplication.controladorHome.dialogo;
+        dialogStage = TaskFlowApplication.controladorHome.dialogo;
         okClicked = true;
         dialogStage.close();
 
@@ -46,14 +49,14 @@ public class EditTaskController implements Initializable {
         try {
             TaskFlowApplication.controladorHome.mostrarTareas();
         } catch (SQLException e) {
-            System.out.printf("Error al mostrar las tareas.\n Error: " +e.getMessage());
+            System.out.printf("Error al mostrar las tareas.\n Error: " + e.getMessage());
         }
         TaskFlowApplication.controladorHome.busquedaDinamica();
     }
 
     public void btnAceptar(ActionEvent actionEvent) {
         //Update the task and comeback to homeview
-        dialogStage= TaskFlowApplication.controladorHome.dialogo;
+        dialogStage = TaskFlowApplication.controladorHome.dialogo;
         okClicked = true;
         dialogStage.close();
 
@@ -74,18 +77,30 @@ public class EditTaskController implements Initializable {
         TaskFlowApplication.controladorHome.busquedaDinamica();
     }
 
-    public boolean isOkClicked(){
+    public boolean isOkClicked() {
         return okClicked;
     }
 
     public void btnCancelar(ActionEvent actionEvent) {
         //Close the window
-        dialogStage= TaskFlowApplication.controladorHome.dialogo;
+        dialogStage = TaskFlowApplication.controladorHome.dialogo;
         dialogStage.close();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tareasDAO = new TareasDAO();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+        btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+        btnEliminar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+    }
+
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+        btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+        btnEliminar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
     }
 }

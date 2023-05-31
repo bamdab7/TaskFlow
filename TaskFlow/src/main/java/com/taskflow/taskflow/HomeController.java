@@ -9,6 +9,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.css.PseudoClass;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
@@ -80,7 +82,7 @@ public class HomeController implements Initializable {
 
         //If we click twice in the table, opens a dialog that show us the details of the task selectet
         tabladb.setOnMouseClicked(event -> {
-            if(event.getClickCount() == 2){
+            if (event.getClickCount() == 2) {
                 Tareas tareaSeleccionada = (Tareas) tabladb.getSelectionModel().getSelectedItem();
                 //Opens the dialogo in order to edit the selected task
                 abrirDialogoEditar(tareaSeleccionada);
@@ -129,7 +131,7 @@ public class HomeController implements Initializable {
 
             // Shows the dialog and waits to close
             dialogo.showAndWait();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.printf("Error al abrir el dialogo. \n Error: " + e.getMessage());
         }
     }
@@ -148,35 +150,35 @@ public class HomeController implements Initializable {
     }
 
     private TableCell<Tareas, String> createEstadoCell() {
-    return new TableCell<Tareas, String>() {
-        @Override
-        protected void updateItem(String item, boolean empty) {
-            super.updateItem(item, empty);
-            if (empty || item == null) {
-                setText(null);
-                setStyle("");
-            } else {
-                setText(item);
-                Tareas tarea = getTableView().getItems().get(getIndex());
-                if (tarea != null) {
-                    String estado = tarea.getEstado();
-                    if (estado.equals("Progreso")) {
-                        setStyle("-fx-text-fill: #b7950b;-fx-font-weight: bold");
-                    } else if (estado.equals("Terminado")) {
-                        setStyle("-fx-text-fill: #5bb830;-fx-font-weight: bold");
-                    } else if (estado.equals("Pendiente")) {
-                        setStyle("-fx-text-fill: #622E1D;-fx-font-weight: bold");
-                    } else {
-                        setStyle("");
+        return new TableCell<Tareas, String>() {
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(item);
+                    Tareas tarea = getTableView().getItems().get(getIndex());
+                    if (tarea != null) {
+                        String estado = tarea.getEstado();
+                        if (estado.equals("Progreso")) {
+                            setStyle("-fx-text-fill: #b7950b;-fx-font-weight: bold");
+                        } else if (estado.equals("Terminado")) {
+                            setStyle("-fx-text-fill: #5bb830;-fx-font-weight: bold");
+                        } else if (estado.equals("Pendiente")) {
+                            setStyle("-fx-text-fill: #622E1D;-fx-font-weight: bold");
+                        } else {
+                            setStyle("");
+                        }
                     }
                 }
             }
-        }
-    };
-}
+        };
+    }
 
 
-//    public void btnBuscar(ActionEvent actionEvent) {
+    //    public void btnBuscar(ActionEvent actionEvent) {
 //        //Search by categoria or name maybe
 //       String nombre =  txtBuscar.getText();
 //       if(tareasDAO.findTaskByName(nombre,LoginController.user.getId_usuario()).isEmpty()){
@@ -189,19 +191,19 @@ public class HomeController implements Initializable {
 //            }
 //        }
 //    }
-    public void busquedaDinamica(){
+    public void busquedaDinamica() {
         FilteredList<Tareas> listadoTareasBusqueda = new FilteredList<>(listadoTareas, e -> true);
-        txtBuscar.setOnKeyReleased( e ->{
-            txtBuscar.textProperty().addListener((observableValue, oldValue, newValue)->{
-                listadoTareasBusqueda.setPredicate((Predicate<? super Tareas>) tareas->{
-                    if(newValue == null || newValue.isEmpty()){
+        txtBuscar.setOnKeyReleased(e -> {
+            txtBuscar.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                listadoTareasBusqueda.setPredicate((Predicate<? super Tareas>) tareas -> {
+                    if (newValue == null || newValue.isEmpty()) {
                         return true;
-                    }else if(tareas.getTitulo().toLowerCase().contains(newValue.toLowerCase())){
-                        return  true;
+                    } else if (tareas.getTitulo().toLowerCase().contains(newValue.toLowerCase())) {
+                        return true;
                     }
                     return false;
                 });
-        });
+            });
             SortedList<Tareas> sortedList = new SortedList<>(listadoTareasBusqueda);
             sortedList.comparatorProperty().bind(tabladb.comparatorProperty());
             tabladb.setItems(sortedList);
@@ -209,11 +211,10 @@ public class HomeController implements Initializable {
     }
 
 
-
     public void btnCategorias(ActionEvent actionEvent) {
         //Opens a new scene that contains the categories
         Scene sceneCategorias = TaskFlowApplication.sceneCategorias;
-        Stage stageCategorias = (Stage) ( (Node) actionEvent.getSource()).getScene().getWindow();
+        Stage stageCategorias = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
 
         stageCategorias.setScene(sceneCategorias);
         stageCategorias.show();
@@ -224,46 +225,46 @@ public class HomeController implements Initializable {
 
     public void btnPendiente(ActionEvent actionEvent) {
         //Search by estado = pendiente
-        if(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()).isEmpty()){
+        if (tareasDAO.findTaskByStatus("Pendiente", LoginController.user.getId_usuario()).isEmpty()) {
             tabladb.setItems(null);
-        }else {
+        } else {
             try {
-                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Pendiente",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Pendiente", LoginController.user.getId_usuario()));
             } catch (SQLException e) {
-                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: " + e.getMessage());
             }
         }
     }
 
     public void btnProgreso(ActionEvent actionEvent) {
         //Search by estado = progreso
-        if(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()).isEmpty()){
+        if (tareasDAO.findTaskByStatus("Progreso", LoginController.user.getId_usuario()).isEmpty()) {
             tabladb.setItems(null);
-        }else {
+        } else {
             try {
-                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Progreso",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Progreso", LoginController.user.getId_usuario()));
             } catch (SQLException e) {
-                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: " + e.getMessage());
             }
         }
     }
 
     public void btnTerminado(ActionEvent actionEvent) {
         //Search by estado = terminado
-        if(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()).isEmpty()){
+        if (tareasDAO.findTaskByStatus("Terminado", LoginController.user.getId_usuario()).isEmpty()) {
             tabladb.setItems(null);
-        }else {
+        } else {
             try {
-                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Terminado",LoginController.user.getId_usuario()));
+                mostrarTareasCondicion(tareasDAO.findTaskByStatus("Terminado", LoginController.user.getId_usuario()));
             } catch (SQLException e) {
-                System.out.printf("Error al mostrar las tareas por estado: \n Error: "+ e.getMessage());
+                System.out.printf("Error al mostrar las tareas por estado: \n Error: " + e.getMessage());
             }
         }
     }
 
     public void btnAdd(ActionEvent actionEvent) {
         //Opens a window, that contais form
-          try {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("form-task-view.fxml"));
             Parent root = loader.load();
             //Calling the controller of the dialog
@@ -276,11 +277,11 @@ public class HomeController implements Initializable {
             dialogStage.setTitle("Añadir formulario");
 
             //Setting the categories in the combobox
-            if(CategoriasDAO.getAllCategories().isEmpty()){
+            if (CategoriasDAO.getAllCategories().isEmpty()) {
                 dialogController.cmbCategoria.setDisable(true);
                 dialogController.cmbCategoria.setPromptText("No hay categorias");
-            }else{
-               // System.out.println(CategoriasDAO.getAllCategories());
+            } else {
+                // System.out.println(CategoriasDAO.getAllCategories());
                 dialogController.cmbCategoria.setItems(CategoriasDAO.getAllCategories());
             }
 
@@ -288,9 +289,9 @@ public class HomeController implements Initializable {
             dialogStage.showAndWait();
 
         } catch (IOException e) {
-              System.out.println("Error: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-          busquedaDinamica();
+        busquedaDinamica();
     }
 
     public void btnHome(ActionEvent actionEvent) {
@@ -303,6 +304,14 @@ public class HomeController implements Initializable {
 
     public void btnClear(ActionEvent actionEvent) {
         txtBuscar.clear();
+    }
+
+    public void onButtonMousePressed(MouseEvent mouseEvent) {
+        btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+    }
+
+    public void onButtonMouseReleased(MouseEvent mouseEvent) {
+        btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
     }
 }
 

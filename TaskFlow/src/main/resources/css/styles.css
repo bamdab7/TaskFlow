@@ -3,18 +3,7 @@
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
 }
-.headerText {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-fill: #000000; /* Color negro */
-    -fx-background-color: #AED6F1; /* Fondo azul claro */
-    -fx-padding: 10px;
-    -fx-border-color: #000000;
-    -fx-border-width: 2px;
-    -fx-border-radius: 10px;
-    -fx-alignment: center;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 2, 2);
-}
+
 
 
 
