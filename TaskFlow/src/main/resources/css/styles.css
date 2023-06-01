@@ -8,6 +8,19 @@
     -fx-pref-height: 200px;
 }*/
 
-
-
+.imgdegrad1{
+-fx-background-image: url("../degrad1.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+.imgdegrad2{
+-fx-background-image: url("../degrad2.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+.imgdegrad3{
+-fx-background-image: url("../degrad3.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
 

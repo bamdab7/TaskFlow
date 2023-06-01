@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" style="-fx-background-color: #B0E0E6;" stylesheets="@../../../css/buttons.css"
+            prefWidth="600.0" style="-fx-background-color: #B0E0E6;" styleClass="imgdegrad2"
             xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.taskflow.taskflow.HomeController">
     <top>
@@ -166,8 +167,8 @@
                     <Insets bottom="5.0" top="5.0"/>
                 </padding>
             </VBox>
-            <JFXButton fx:id="btnAdd" onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
-                       alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
+            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
+                       onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
                        stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
                        GridPane.rowIndex="1">
                 <graphic>
@@ -215,4 +216,8 @@
             </opaqueInsets>
         </TableView>
     </center>
+    <stylesheets>
+        <URL value="@../../../css/buttons.css"/>
+        <URL value="@../../../css/styles.css"/>
+    </stylesheets>
 </BorderPane>

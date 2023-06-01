@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0"
-            prefWidth="453.0" style="-fx-background-color: #ADD8E6;" styleClass="img"
+            prefWidth="453.0" style="-fx-background-color: #ADD8E6;" styleClass="imgdegrad1"
             stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/20.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.EditTaskController">
     <padding>
