@@ -17,207 +17,183 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" style="-fx-background-color: #B0E0E6;" styleClass="imgdegrad2"
-            xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.taskflow.taskflow.HomeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="620.0" style="-fx-background-color: #B0E0E6;" styleClass="imgdegrad2" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.HomeController">
     <top>
         <GridPane prefWidth="606.0" BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="143.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0" minWidth="10.0" prefWidth="257.0"/>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="170.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="10.0" prefWidth="143.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="308.0" minWidth="10.0" prefWidth="257.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="171.0" minWidth="10.0" prefWidth="170.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <BorderPane.margin>
-                <Insets bottom="5.0" top="5.0"/>
+                <Insets bottom="5.0" top="5.0" />
             </BorderPane.margin>
-            <TextField fx:id="txtBuscar" promptText="Buscar tareas..." style="-fx-font-style: italic;"
-                       GridPane.columnIndex="1">
+            <TextField fx:id="txtBuscar" promptText="Buscar tareas..." style="-fx-font-style: italic;" GridPane.columnIndex="1">
                 <GridPane.margin>
-                    <Insets right="10.0"/>
+                    <Insets right="10.0" />
                 </GridPane.margin>
             </TextField>
             <JFXButton fx:id="btnBuscar" onAction="#btnClear" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                 <graphic>
                     <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../icons/delete.png"/>
+                        <Image url="@../../../icons/delete.png" />
                     </ImageView>
                 </graphic>
                 <GridPane.margin>
-                    <Insets right="10.0"/>
+                    <Insets right="10.0" />
                 </GridPane.margin>
             </JFXButton>
-            <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER"
-                  wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.halignment="CENTER"
-                  GridPane.valignment="CENTER">
+            <Text fx:id="nombreUsuario" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" textAlignment="CENTER" wrappingWidth="114.95703125" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
             </Text>
 
         </GridPane>
     </top>
     <padding>
-        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
     </padding>
     <left>
         <GridPane BorderPane.alignment="CENTER">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES"/>
-                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="289.0" minHeight="10.0" prefHeight="249.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="165.0" minHeight="10.0" prefHeight="91.0" vgrow="SOMETIMES" />
             </rowConstraints>
-            <VBox prefHeight="218.0" prefWidth="100.0"
-                  style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
-                <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome"
-                           stylesheets="@../../../css/buttons.css" text="Inicio">
+            <VBox prefHeight="218.0" prefWidth="100.0" style="-fx-background-color: #F5FFFA; -fx-background-radius: 10; -fx-border-radius: 10;">
+                <JFXButton fx:id="btnHome" alignment="BASELINE_LEFT" onAction="#btnHome" stylesheets="@../../../css/buttons.css" text="Inicio">
                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                                   styleClass="icon">
-                            <Image url="@../../../icons/home.png"/>
+                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                            <Image url="@../../../icons/home.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <styleClass>
-                        <String fx:value="principal"/>
-                        <String fx:value="btnHome"/>
+                        <String fx:value="principal" />
+                        <String fx:value="btnHome" />
                     </styleClass>
                 </JFXButton>
-                <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias"
-                           stylesheets="@../../../css/buttons.css" text="Categorias">
+                <JFXButton fx:id="btnCategorias" alignment="BOTTOM_LEFT" onAction="#btnCategorias" stylesheets="@../../../css/buttons.css" text="Categorias">
                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                                   styleClass="icon">
-                            <Image url="@../../../icons/categories.png"/>
+                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                            <Image url="@../../../icons/categories.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <styleClass>
-                        <String fx:value="principal"/>
-                        <String fx:value="btnCategorias"/>
+                        <String fx:value="principal" />
+                        <String fx:value="btnCategorias" />
                     </styleClass>
                 </JFXButton>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold" text="Ver"
-                      wrappingWidth="77.708984375">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold" text="Ver" wrappingWidth="77.708984375">
                     <VBox.margin>
-                        <Insets left="10.0"/>
+                        <Insets left="10.0" />
                     </VBox.margin>
                 </Text>
-                <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente"
-                           stylesheets="@../../../css/buttons.css" text="Pendiente">
+                <JFXButton fx:id="btnPendiente" alignment="BOTTOM_LEFT" onAction="#btnPendiente" stylesheets="@../../../css/buttons.css" text="Pendiente">
                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                                   styleClass="icon">
-                            <Image url="@../../../icons/clock.png"/>
+                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                            <Image url="@../../../icons/clock.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <styleClass>
-                        <String fx:value="status"/>
-                        <String fx:value="btnPendiente"/>
+                        <String fx:value="status" />
+                        <String fx:value="btnPendiente" />
                     </styleClass>
                 </JFXButton>
-                <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso"
-                           stylesheets="@../../../css/buttons.css" text="Progreso">
+                <JFXButton fx:id="btnProgreso" alignment="BOTTOM_LEFT" onAction="#btnProgreso" stylesheets="@../../../css/buttons.css" text="Progreso">
                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                                   styleClass="icon">
-                            <Image url="@../../../icons/waiting.png"/>
+                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                            <Image url="@../../../icons/waiting.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <styleClass>
-                        <String fx:value="status"/>
-                        <String fx:value="btnProgreso"/>
+                        <String fx:value="status" />
+                        <String fx:value="btnProgreso" />
                     </styleClass>
                 </JFXButton>
-                <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado"
-                           stylesheets="@../../../css/buttons.css" text="Terminado">
+                <JFXButton fx:id="btnTerminado" alignment="BOTTOM_LEFT" onAction="#btnTerminado" stylesheets="@../../../css/buttons.css" text="Terminado">
                     <graphic>
-                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                                   styleClass="icon">
-                            <Image url="@../../../icons/done.png"/>
+                        <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                            <Image url="@../../../icons/done.png" />
                         </ImageView>
                     </graphic>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <padding>
-                        <Insets bottom="10.0" left="10.0" top="10.0"/>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
                     </padding>
                     <styleClass>
-                        <String fx:value="status"/>
-                        <String fx:value="btnTerminado"/>
+                        <String fx:value="status" />
+                        <String fx:value="btnTerminado" />
                     </styleClass>
                 </JFXButton>
                 <GridPane.margin>
-                    <Insets bottom="20.0"/>
+                    <Insets bottom="20.0" />
                 </GridPane.margin>
                 <padding>
-                    <Insets bottom="5.0" top="5.0"/>
+                    <Insets bottom="5.0" top="5.0" />
                 </padding>
             </VBox>
-            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd"
-                       onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased"
-                       stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER"
-                       GridPane.rowIndex="1">
+            <JFXButton fx:id="btnAdd" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="10.0" onAction="#btnAdd" onMousePressed="#onButtonMousePressed" onMouseReleased="#onButtonMouseReleased" stylesheets="@../../../css/buttons.css" text="Añadir" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                 <graphic>
-                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true"
-                               styleClass="icon">
-                        <Image url="@../../../icons/add.png"/>
+                    <ImageView fitHeight="15.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true" styleClass="icon">
+                        <Image url="@../../../icons/add.png" />
                     </ImageView>
                 </graphic>
                 <styleClass>
-                    <String fx:value="btnAdd"/>
-                    <String fx:value="actions"/>
+                    <String fx:value="btnAdd" />
+                    <String fx:value="actions" />
                 </styleClass>
             </JFXButton>
             <BorderPane.margin>
-                <Insets top="5.0"/>
+                <Insets top="5.0" />
             </BorderPane.margin>
         </GridPane>
     </left>
     <center> <!-- TABLA QUE MOSTRARA LAS TAREAS, SOLO EL TITUO, LA CATEGORIA Y EL ESTADO -->
-        <TableView fx:id="tabladb" prefHeight="200.0" prefWidth="200.0"
-                   style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;"
-                   stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
+        <TableView fx:id="tabladb" prefHeight="325.0" prefWidth="495.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #F5FFFA;" stylesheets="@../../../css/table.css" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn editable="false" prefWidth="232.0" sortable="false">
+                <TableColumn editable="false" maxWidth="1.7976931348623157E308" prefWidth="174.0" sortable="false">
                     <cellValueFactory>
-                        <PropertyValueFactory property="titulo"/>
+                        <PropertyValueFactory property="titulo" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn editable="false" minWidth="7.0" prefWidth="140.0" sortable="false">
+                <TableColumn editable="false" maxWidth="1.7976931348623157E308" minWidth="7.0" prefWidth="168.0" sortable="false">
                     <cellValueFactory>
-                        <PropertyValueFactory property="nombre_categoria"/>
+                        <PropertyValueFactory property="nombre_categoria" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn editable="false" prefWidth="106.0" sortable="false">
+                <TableColumn editable="false" maxWidth="1.7976931348623157E308" prefWidth="125.0" sortable="false">
                     <cellValueFactory>
-                        <PropertyValueFactory property="estado"/>
+                        <PropertyValueFactory property="estado" />
                     </cellValueFactory>
                 </TableColumn>
             </columns>
             <BorderPane.margin>
-                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                <Insets bottom="10.0" left="5.0" top="5.0" />
             </BorderPane.margin>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
         </TableView>
     </center>
     <stylesheets>
-        <URL value="@../../../css/buttons.css"/>
-        <URL value="@../../../css/styles.css"/>
+        <URL value="@../../../css/buttons.css" />
+        <URL value="@../../../css/styles.css" />
     </stylesheets>
 </BorderPane>

@@ -16,8 +16,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0"
-            prefWidth="453.0" style="-fx-background-color: #ADD8E6;" styleClass="imgdegrad1"
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0"
+            prefWidth="470.0" style="-fx-background-color: #ADD8E6;" styleClass="imgdegrad1"
             stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/20.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.taskflow.taskflow.EditTaskController">
     <padding>
@@ -82,7 +82,7 @@
         </GridPane>
     </center>
     <bottom>
-        <GridPane prefHeight="30.0" prefWidth="433.0" BorderPane.alignment="CENTER">
+        <GridPane prefHeight="40.0" prefWidth="433.0" BorderPane.alignment="CENTER">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -124,6 +124,9 @@
                     <String fx:value="btnDelete"/>
                 </styleClass>
             </Button>
+            <BorderPane.margin>
+                <Insets bottom="10.0"/>
+            </BorderPane.margin>
         </GridPane>
     </bottom>
 </BorderPane>

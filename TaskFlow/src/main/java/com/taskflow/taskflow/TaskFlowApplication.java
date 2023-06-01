@@ -49,22 +49,22 @@ public class TaskFlowApplication extends Application {
         FXMLLoader fxmlLoaderHome = new FXMLLoader(TaskFlowApplication.class.getResource("home-view.fxml"));
         Parent rootHome = fxmlLoaderHome.load();
         controladorHome = fxmlLoaderHome.getController();
-        sceneHome = new Scene(rootHome, 646, 394);
+        sceneHome = new Scene(rootHome, 620, 420);
 
         FXMLLoader fxmlLoaderRegister = new FXMLLoader(TaskFlowApplication.class.getResource("register-view.fxml"));
         Parent rootRegister = fxmlLoaderRegister.load();
         controladorRegister = fxmlLoaderRegister.getController();
-        sceneRegister = new Scene(rootRegister, 656, 400);
+        sceneRegister = new Scene(rootRegister, 620, 420);
 
         FXMLLoader fxmlLoaderCategorias = new FXMLLoader(TaskFlowApplication.class.getResource("categories-view.fxml"));
         Parent rootCategorias = fxmlLoaderCategorias.load();
         controladorCategorias = fxmlLoaderCategorias.getController();
-        sceneCategorias = new Scene(rootCategorias, 646, 394);
+        sceneCategorias = new Scene(rootCategorias, 620, 420);
 
         FXMLLoader fxmlLoaderLogin = new FXMLLoader(TaskFlowApplication.class.getResource("login-view.fxml"));
         // Parent rootLogin = fxmlLoaderLogin.load(); //Do not use this if this is the first scene lauched
         controladorRegister = fxmlLoaderLogin.getController();
-        sceneLogin = new Scene(fxmlLoaderLogin.load(), 646, 394);
+        sceneLogin = new Scene(fxmlLoaderLogin.load(), 620, 420);
 
         //Adding icon to application
         stage.getIcons().add(new Image(Objects.requireNonNull(TaskFlowApplication.class.getResourceAsStream("/logo.png"))));
