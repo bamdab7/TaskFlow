@@ -149,7 +149,6 @@ public class HomeController implements Initializable {
     public void mostrarTareas() throws SQLException {
         listadoTareas = tareasDAO.obtenerListadoTareas(LoginController.user.getId_usuario());
         tabladb.setItems(listadoTareas);
-        System.out.println(listadoTareas);
 
         TableColumn<Tareas, String> estadoColumn = (TableColumn<Tareas, String>) tabladb.getColumns().get(2);
         estadoColumn.setCellFactory(column -> createEstadoCell());

@@ -21,13 +21,11 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-
     public TextField txtUser;
     public TextField txtPassword;
     public JFXButton btnLogin;
     public Hyperlink linkRegister;
     public Text verification;
-
     UsuariosDAO usuariosDAO;
     public static Usuarios user;
 
@@ -51,7 +49,6 @@ public class LoginController implements Initializable {
                 btnLogin();
             }
         });
-
     }
 
     public void btnLogin() {
@@ -59,7 +56,6 @@ public class LoginController implements Initializable {
         String username = txtUser.getText();
         String password = txtPassword.getText();
         if (usuariosDAO.comprobarUsuario(username, password)) {
-            System.out.println("Usuario encontrado\n");
             user = usuariosDAO.getUser(username);
             //Scene Home
             Scene sceneHome = TaskFlowApplication.sceneHome;

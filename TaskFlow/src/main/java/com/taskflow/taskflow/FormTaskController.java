@@ -2,7 +2,6 @@ package com.taskflow.taskflow;
 
 import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
-import com.taskflow.taskflow.dao.UsuariosDAO;
 import com.taskflow.taskflow.pojo.Tareas;
 import com.taskflow.taskflow.pojo.Usuarios;
 import javafx.css.PseudoClass;
@@ -62,7 +61,7 @@ public class FormTaskController implements Initializable {
             //INSERT
             tareasDAO.insertarTareas(tarea);
             id = 0;
-            System.out.println(tarea);
+
             eliminarCampos();
             //Updating the window
             try {
@@ -104,12 +103,10 @@ public class FormTaskController implements Initializable {
     public void onButtonMousePressed(MouseEvent mouseEvent) {
         btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
         btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
-
     }
 
     public void onButtonMouseReleased(MouseEvent mouseEvent) {
         btnCancelar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
         btnAceptar.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
-
     }
 }

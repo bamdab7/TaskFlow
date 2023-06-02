@@ -38,7 +38,6 @@ public class EditTaskController implements Initializable {
         txtDescripcion.setText(tarea.getDescripcion());
         cmbCategoria.setValue(tarea.getNombre_categoria());
         cmbEstado.setValue(tarea.getEstado());
-        System.out.println(tarea1);
     }
 
     public void btnEliminar(ActionEvent actionEvent) {
@@ -70,13 +69,12 @@ public class EditTaskController implements Initializable {
         tarea1.setEstado(cmbEstado.getSelectionModel().getSelectedItem().toString());
 
         String categoria = cmbCategoria.getSelectionModel().getSelectedItem().toString();
-        System.out.println(categoria);
         int id_categoria = CategoriasDAO.getIdCategoria(categoria);
         tarea1.setId_categoria(id_categoria);
 
         //Update
         tareasDAO.editarTareas(tarea1);
-        System.out.println(tarea1);
+
         //Update the table
         try {
             TaskFlowApplication.controladorHome.mostrarTareas();

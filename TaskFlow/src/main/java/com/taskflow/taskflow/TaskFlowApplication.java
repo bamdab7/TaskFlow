@@ -4,14 +4,11 @@ import com.taskflow.taskflow.dao.CategoriasDAO;
 import com.taskflow.taskflow.dao.TareasDAO;
 import com.taskflow.taskflow.dao.UsuariosDAO;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -24,7 +21,6 @@ public class TaskFlowApplication extends Application {
     public static HomeController controladorHome;
     public static RegisterController controladorRegister;
     public static CategoriasController controladorCategorias;
-
     public static UsuariosDAO users = new UsuariosDAO();
     public static CategoriasDAO categorias = new CategoriasDAO();
     public static TareasDAO tareas = new TareasDAO();
