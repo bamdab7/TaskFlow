@@ -16,12 +16,10 @@ import javafx.util.Duration;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CategoriasController implements Initializable {
-    public Text nombreUsuario;
     public JFXButton btnHome;
     public JFXButton btnAdd;
     public TableView<Categorias> tablacategorias;
@@ -64,7 +62,6 @@ public class CategoriasController implements Initializable {
             System.out.printf("Error al mostrar tareas. \n Error: " + e.getMessage());
         }
         TaskFlowApplication.controladorHome.busquedaDinamica();
-        ;
     }
 
 
@@ -137,7 +134,7 @@ public class CategoriasController implements Initializable {
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
-      //  alert.getDialogPane().getStyleClass().add("my-alert");
+        //  alert.getDialogPane().getStyleClass().add("my-alert");
         alert.showAndWait();
     }
 
@@ -146,19 +143,17 @@ public class CategoriasController implements Initializable {
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensaje);
-     //   alert.getDialogPane().getStyleClass().add("my-alert");
+        //   alert.getDialogPane().getStyleClass().add("my-alert");
         alert.showAndWait();
     }
 
     public void onButtonMousePressed(MouseEvent mouseEvent) {
         btnDelete.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
         btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
-
     }
 
     public void onButtonMouseReleased(MouseEvent mouseEvent) {
         btnDelete.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
         btnAdd.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
-
     }
 }
