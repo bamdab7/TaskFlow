@@ -3,24 +3,24 @@ Gestor de tareas de facil uso.
 
 ## Tabla de Contenido
 
-- [Características de la aplicacion](##Características)
-- [Capturas de pantalla](##Capturas de Pantalla)
-- [Requisitos](##Requisitos previos a la instalacion)
-- [Instalación](##Instalación y uso)
-- [Estructura de la aplicación](##Estructura del proyecto)
-- [Dependencias](##Dependencias)
-- [Como contribuir?](##Contribución)
-- [Autor/es](##Autores)
+- [Características de la aplicacion](#características)
+- [Capturas de pantalla](#capturas-de-pantalla)
+- [Requisitos](#requisitos-previos-a-la-instalacion)
+- [Instalación](#instalación-y-uso)
+- [Estructura de la aplicación](#estructura-del-proyecto)
+- [Dependencias](#dependencias)
+- [Como contribuir?](#contribución)
+- [Autor/es](#autores)
 - [Licencia](#licencia)
 
 
-## Características
+# Características
 - __Creación de tareas__: Permite a los usuarios crear nuevas tareas con detalles como título, descripción y determinar el estado en el que se encuentra.
 - __Lista de tareas__: Muestra una lista de todas las tareas del usuario.
 - __Estado de las tareas__: Permite a los usuarios modificar el estado de las tareas para marcarlas como completadas, en progreso o sin empezar, y filtrarlas segun estén.
 - __Filtros y búsquedas avanzadas__: Permite a los usuarios buscar y filtrar por nombre las tareas en tiempo real.
 
-## Capturas de Pantalla
+# Capturas de Pantalla
 ![Ventana de inicio](Documentacion%2FCapturas%20de%20pantalla%2Flogin.png)
 * Se presenta se muestra la interfaz de inicio de sesión de la aplicación. Los usuarios pueden ingresar sus credenciales, como usuario y contraseña, para acceder a su cuenta.
 ---
@@ -40,7 +40,7 @@ Gestor de tareas de facil uso.
 * Ventana de las categorias que existen en la aplicacion, con posibilidad de modificarlas (editando y borrando) y añadir más.
 ---
 
-## Requisitos previos a la instalacion
+# Requisitos previos a la instalacion
 1. Tener instalado un gestor de base de datos ([XAMPP](https://www.apachefriends.org/es/download.html) o [WampServer](https://www.wampserver.com/en/))
 2. Tener un IDE instalado actualizado (se empleará _openjdk20_) recomendable __[IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/download/#section=windows)__ ya que busca el JDK automaticamente.
 
@@ -50,7 +50,7 @@ Gestor de tareas de facil uso.
 > * user: __admin__
 > * password: __0000__
 
-## Instalación y uso
+# Instalación y uso
 1. Clona este repositorio: `git clone https://github.com/bamdab7/TaskFlow.git`
 2. Asegurate de tener un gestor de base de datos operando y crea una base de datos llamada ___gestor_tareas___
 3. Abre tu proyecto con un IDE (recomendable emplear __[IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/download/#section=windows)__)
@@ -63,7 +63,7 @@ También encontrara facil la manera en la que puede añadir o editar las tareas,
 Se proporciona una ventana en la que se permite la gestión de las categorias que existen, permitiendo al usuario poder añadir o modificar las que ya existen.  
 
 ---
-## Estructura del proyecto
+# Estructura del proyecto
     proyecto/
     ├── src/
     │ ├── main/
@@ -97,24 +97,24 @@ Se proporciona una ventana en la que se permite la gestión de las categorias qu
     │ │  ├── logo.png
     README.md
 
-## Dependencias
+# Dependencias
 A continuación, se enumeran las dependencias empleadas en este proyecto:  
 
-### JFoenix
+## JFoenix
     <dependency>
             <groupId>com.jfoenix</groupId>
             <artifactId>jfoenix</artifactId>
             <version>9.0.10</version>
     </dependency>
 > JFoenix is an open source Java library, that implements Google Material Design using Java components
-### MySQL
+## MySQL
     <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>8.0.32</version>
     </dependency>
 > MySQL is an Oracle-backed open source relational database management system (RDBMS) based on Structured Query Language (SQL).
-## Contribución
+# Contribución
 Si quieres contribuir a este proyecto, sigue los siguientes pasos:
  1. Haz un fork del repositorio.
  2. Crea una nueva rama: `git checkout -b mi-rama`
@@ -122,8 +122,8 @@ Si quieres contribuir a este proyecto, sigue los siguientes pasos:
  4. Haz push a la rama: `git push origin mi-rama`
  5. Crea un pull request en GitHub.
 
-## Autores
+# Autores
 Nerea Pena Carbajales [@bamdab7](https://github.com/bamdab7/)
 
-## Licencia
+# Licencia
 MIT License
