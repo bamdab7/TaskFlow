@@ -30,36 +30,29 @@ public class CategoriasDAO {
             conn = getConnection();
             Statement st = conn.createStatement();
 
-            String sql = "CREATE TABLE IF NOT EXISTS categorias (" +
-                    "  id_categorias int NOT NULL AUTO_INCREMENT," +
-                    "  nombre varchar(50) NOT NULL," +
-                    "  PRIMARY KEY (id_categorias)" +
-                    ")ENGINE=InnoDB";
+            String sql = "CREATE TABLE IF NOT EXISTS categorias (" + "  id_categorias int NOT NULL AUTO_INCREMENT," + "  nombre varchar(50) NOT NULL," + "  PRIMARY KEY (id_categorias)" + ")ENGINE=InnoDB";
             st.executeUpdate(sql);
         } catch (SQLException e) {
-             System.out.printf("Error al crear la base de datos CATEGORIAS.\n Error: " +e.getMessage());;
+            System.out.printf("Error al crear la base de datos CATEGORIAS.\n Error: " + e.getMessage());
+            ;
         }
     }
-    public void insertarCategoriaDefecto(){
+
+    public void insertarCategoriaDefecto() {
         try {
             conn = getConnection();
             Statement st = conn.createStatement();
-            String sql ="INSERT INTO categorias (nombre)" +
-                    " SELECT 'Sin categoria' " +
-                    " WHERE NOT EXISTS (" +
-                    "    SELECT 1" +
-                    "    FROM categorias" +
-                    "    WHERE nombre = 'Sin Categoria'" +
-                    ");";
+            String sql = "INSERT INTO categorias (nombre)" + " SELECT 'Sin categoria' " + " WHERE NOT EXISTS (" + "    SELECT 1" + "    FROM categorias" + "    WHERE nombre = 'Sin Categoria'" + ");";
             st.executeUpdate(sql);
         } catch (SQLException e) {
-             System.out.printf("Error al crear la categoria por defecto.\n Error: " +e.getMessage());;
+            System.out.printf("Error al crear la categoria por defecto.\n Error: " + e.getMessage());
+            ;
         }
     }
 
 
     //Only get the name and put it in a simple List
-    public static ObservableList<String> getAllCategories(){
+    public static ObservableList<String> getAllCategories() {
         try {
             conn = getConnection();
             String sql = "SELECT* FROM categorias";
@@ -67,7 +60,7 @@ public class CategoriasDAO {
             //Update in case someone adds another category
             items.removeAll(items);
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 items.add(rs.getString("nombre"));
             }
             return items;
@@ -76,6 +69,7 @@ public class CategoriasDAO {
             return null;
         }
     }
+
     //Another method to get all categories and put them in the table
     public ObservableList<Categorias> obtenerListadoCategorias() {
         ObservableList<Categorias> categoriasList = FXCollections.observableArrayList();
@@ -84,10 +78,10 @@ public class CategoriasDAO {
             String query = "SELECT * FROM categorias WHERE nombre NOT LIKE 'Sin Categoria'";
             Statement st;
             ResultSet rs;
-                st = conn.createStatement();
-                rs = st.executeQuery(query);
-                Categorias categoria;
-            while ((rs.next())){
+            st = conn.createStatement();
+            rs = st.executeQuery(query);
+            Categorias categoria;
+            while ((rs.next())) {
                 categoria = new Categorias(rs.getInt("id_categorias"), rs.getString("nombre"));
                 categoriasList.add(categoria);
             }
@@ -97,7 +91,7 @@ public class CategoriasDAO {
         return categoriasList;
     }
 
-    public static int getIdCategoria(String nombre){
+    public static int getIdCategoria(String nombre) {
         try {
             int id = 0;
             conn = getConnection();
@@ -105,8 +99,8 @@ public class CategoriasDAO {
             PreparedStatement ps = conn.prepareStatement(sql);
             //Update in case someone adds another category
             ResultSet rs = ps.executeQuery();
-            while (rs.next()){
-               id = rs.getInt("id_categorias");
+            while (rs.next()) {
+                id = rs.getInt("id_categorias");
             }
             return id;
         } catch (SQLException e) {
@@ -116,40 +110,41 @@ public class CategoriasDAO {
     }
 
     //Creating methods to create and delete a category
-    public void eliminarCategoria(Categorias categoria){
+    public void eliminarCategoria(Categorias categoria) {
         try {
             conn = getConnection();
-            String query = "DELETE FROM categorias WHERE id_categorias = " + categoria.getId_categorias();
+            String deletequery = "DELETE FROM categorias WHERE id_categorias = " + categoria.getId_categorias();
+            String updatequery = "UPDATE tareas SET categoria_id = '1' WHERE categoria_id LIKE '" + categoria.getId_categorias() + "'";
             Statement st;
             st = conn.createStatement();
-            st.executeUpdate(query);
+            st.executeUpdate(updatequery);
+            st.executeUpdate(deletequery);
         } catch (SQLException e) {
             System.out.printf("Error al eliminar una categoria. \n Error: " + e.getMessage());
         }
     }
-    public void insertarCategoria(Categorias categoria){
+
+    public void insertarCategoria(Categorias categoria) {
         try {
             conn = getConnection();
-            String query = "INSERT INTO categorias (id_categorias,nombre) VALUES ('" +
-                    categoria.getId_categorias() + "','" + categoria.getNombre() + "')";
+            String query = "INSERT INTO categorias (id_categorias,nombre) VALUES ('" + categoria.getId_categorias() + "','" + categoria.getNombre() + "')";
             Statement st;
             st = conn.createStatement();
             st.executeUpdate(query);
         } catch (SQLException e) {
-            System.out.printf("Error al insertar una categoria. \n Error: "+ e.getMessage());
+            System.out.printf("Error al insertar una categoria. \n Error: " + e.getMessage());
         }
     }
-    public void actualizarCategoria(Categorias categoria){
+
+    public void actualizarCategoria(Categorias categoria) {
         try {
             conn = getConnection();
-            String sql = "UPDATE categorias " +
-                    "SET nombre = '" + categoria.getNombre()
-                    + "' WHERE id_categorias = " + categoria.getId_categorias();
+            String sql = "UPDATE categorias " + "SET nombre = '" + categoria.getNombre() + "' WHERE id_categorias = " + categoria.getId_categorias();
             Statement st;
             st = conn.createStatement();
             st.executeUpdate(sql);
         } catch (SQLException e) {
-            System.out.printf("Error al actualizar la categoria. \n Error: "+ e.getMessage());
+            System.out.printf("Error al actualizar la categoria. \n Error: " + e.getMessage());
         }
     }
 }

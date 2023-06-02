@@ -68,7 +68,7 @@ public class CategoriasController implements Initializable {
     }
 
 
-    public void btnAdd(ActionEvent actionEvent) {
+    public void btnAdd(ActionEvent actionEvent) throws SQLException {
         //Collects the values them in a form to add or Edit?¿
         Categorias categoria = new Categorias();
 
@@ -89,6 +89,7 @@ public class CategoriasController implements Initializable {
                 id = 0;
                 //Update values
                 mostrarCategorias();
+                TaskFlowApplication.controladorHome.mostrarTareas();
                 eliminarCampos();
                 mostrarAlertaInfo("Informacion", "Categoria actualizada correctamente");
             }
@@ -103,7 +104,7 @@ public class CategoriasController implements Initializable {
         txtNombre.clear();
     }
 
-    public void btnDelete(ActionEvent actionEvent) {
+    public void btnDelete(ActionEvent actionEvent) throws SQLException {
         Categorias categorias = tablacategorias.getSelectionModel().getSelectedItem();
         if (categorias == null) {
             //U must have select something
@@ -122,6 +123,7 @@ public class CategoriasController implements Initializable {
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 categoriasDAO.eliminarCategoria(categorias);
                 mostrarCategorias();
+                TaskFlowApplication.controladorHome.mostrarTareas();
             } else {
                 // Cancell
                 System.out.println("Acción cancelada");
