@@ -109,15 +109,16 @@ public class TareasDAO {
         ObservableList<Tareas> tareasList = FXCollections.observableArrayList();
         try {
             conn = getConnection();
-            String sql = "SELECT * FROM tareas WHERE estado LIKE '" + estado + "' AND usuario_id LIKE '" + id_usuario + "'";
+            String sql = "SELECT tareas.*, categorias.nombre AS nombre_categoria FROM tareas JOIN categorias ON tareas.categoria_id = categorias.id_categorias WHERE estado LIKE '" + estado + "' AND usuario_id LIKE '" + id_usuario + "'";
             PreparedStatement ps = conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             Tareas tarea;
             //Getting task
             while ((rs.next())) {
-                tarea = new Tareas(rs.getInt("id_tareas"), rs.getString("titulo"), rs.getString("descripcion"), rs.getString("estado"), rs.getInt("usuario_id"), rs.getInt("categoria_id"));
+                tarea = new Tareas(rs.getInt("id_tareas"), rs.getString("titulo"), rs.getString("descripcion"), rs.getString("estado"), rs.getInt("usuario_id"), rs.getInt("categoria_id"), rs.getString("nombre_categoria"));
                 tareasList.add(tarea);
             }
+            System.out.println(tareasList);
             return tareasList;
         } catch (SQLException e) {
             System.out.printf("Error al encontrar por estado. \n Error: " + e.getMessage());
